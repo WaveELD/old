@@ -153,9 +153,8 @@ shows how this second order spatial derivative is computed in the discrete space
 
 Interestingly, this second order spatial derivative is effectively the same as the restoring force in the wave equation -- there is just a factor of the epsilon squared difference between them:
 
-- **restoring force:** $f = \left( \frac{y^t\_{x-1} + y^t\_{x+1}}{2} \right) - 2 y^t_x = \epsilon^2 \frac{\partial^2y}{\partial x^2} $
-    
-$= \left( y^t\_{x+1} + y^t\_{x-1} \right) - 2 y^t_x$
+- **restoring force:** $f = \left( \frac{y^t\_{x-1} + y^t\_{x+1}}{2} \right) - 2 y^t_x = \epsilon^2 \frac{\partial^2y}{\partial x^2} $  
+- $= \left( y^t\_{x+1} + y^t\_{x-1} \right) - 2 y^t_x$
 
 We normally set this epsilon constant to be 1 in the native units of the simulation, so that it effectively disappears from the computation. Nevertheless, understanding these constants is important when trying to get all the units right, but they don't affect the core conceptual basis of what is going on, which is that the restoring force is driven by the curvature of the curvature (slope of the slope) of the wave medium.
 
