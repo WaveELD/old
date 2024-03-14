@@ -10,7 +10,7 @@ Aside from looking completely mesmerizing, these simple waves can exhibit some i
 
 # The Wave Equation: Newtonian Version
 
-y^t_x$. The restoring force *f* pulling back on a given point is the total disturbance of that point relative to its two neighbors on either side, which is the sum of the differences between the state value at that point compared to the each of the two neighbors ($f = f_l + f_r$). This force *f* creates an acceleration $a=f/m$, which in turn updates the velocity, which in turn drives a change in the state value for the next time step. That's all there is to it. This system has a built-in inertia (due to the basic Newtonian physics of force, acceleration and velocity), so it will end up overshooting the average of its neighbors (who meanwhile are on the move themselves) -- this all creates the fascinating wave dynamics.}}
+The restoring force *f* pulling back on a given point is the total disturbance of that point relative to its two neighbors on either side, which is the sum of the differences between the state value at that point compared to the each of the two neighbors ($f = f_l + f_r$). This force *f* creates an acceleration $a=f/m$, which in turn updates the velocity, which in turn drives a change in the state value for the next time step. That's all there is to it. This system has a built-in inertia (due to the basic Newtonian physics of force, acceleration and velocity), so it will end up overshooting the average of its neighbors (who meanwhile are on the move themselves) -- this all creates the fascinating wave dynamics.}}
 
 We start by deriving the second order wave equation from basic Newtonian physical principles, in a simple one-dimensional case with discrete uniform cells each having a "state value" that represents the "stuff" that moves around in the wave (e.g., the height of water) (). Time is also discretized, with everything computed in discrete time steps, consistent with the **cellular automaton (CA)** framework discussed in the [Introductory Chapter](ch01_intro.md). In the notation of the figure, we label the location of each cell using the index *x*, and each time step with the index *t*, and the current state value of a given cell as $y^t_x$. The restoring force is proportional to the difference in state values between a given point and its two neighbors on either side:
 
@@ -37,26 +37,29 @@ Next, this new velocity is used to update the state value, completing a given ti
 
 In the **synchronous update** mode used in the CA framework, each state location is updated at the same time (synchronously), and the new states then all become the current states for the next iteration, and so on. In a computer program, one typically has to actually iterate sequentially through all the states one at a time, and the "current" and "next" states must both be maintained for each location to achieve the proper synchronous computation without order of update effects.
 
-In simplified computer programming notation, using semantically-labeled temporary variables, the wave equation is: \<pre\> foreach time t {
+In simplified computer programming notation, using semantically-labeled temporary variables, the wave equation is: 
 
-` foreach state x {`  
-`   // first get meaningful temporary variables for key values`  
-`   neigh_l = state(x-1,t);                // neighbor to the left, current`  
-`   neigh_r = state(x+1,t);                // neighbor to the right, current`  
-`   cur_state = state(x, t);               // current state`  
-`   cur_vel = state(x, t) - state(x, t-1); // current velocity -- could store this separately`
+```
+foreach time t {
 
-`   // next compute new values from current ones: this is the key set of equations`  
-`   neigh_sum = neigh_l + neigh_r;         // sum of neighbor values to left and right`  
-`   force = neigh_sum - 2.0 * cur_state;   // restoring force = neighbors vs. my current state`  
-`   acc = force / mass;                    // acceleration = force / mass`  
-`   new_vel = cur_vel + acc;               // new velocity = current velocity + new acceleration`  
-`   new_state = cur_state + new_vel;       // new state = current state + new velocity`
+ foreach state x {  
+   // first get meaningful temporary variables for key values  
+   neigh_l = state(x-1,t);                // neighbor to the left, current  
+   neigh_r = state(x+1,t);                // neighbor to the right, current  
+   cur_state = state(x, t);               // current state  
+   cur_vel = state(x, t) - state(x, t-1); // current velocity -- could store this separately
 
-`   state(x,t+1) = new_state;              // store new state`  
-` }`
+   // next compute new values from current ones: this is the key set of equations  
+   neigh_sum = neigh_l + neigh_r;         // sum of neighbor values to left and right  
+   force = neigh_sum - 2.0 * cur_state;   // restoring force = neighbors vs. my current state  
+   acc = force / mass;                    // acceleration = force / mass  
+   new_vel = cur_vel + acc;               // new velocity = current velocity + new acceleration  
+   new_state = cur_state + new_vel;       // new state = current state + new velocity
 
-} \</pre\>
+   state(x,t+1) = new_state;              // store new state  
+ }
+}
+```
 
 It is important to be clear about the so-called **unique degrees of freedom** of this system at each point in space: what is the truly minimal number of variables one would need to maintain at each point in space? It is *two* for this system: either the current state and velocity, or the current and prior state values (from which velocity can be computed as in the above example) must be stored. A given computer implementation may store more than this minimal number to manage the synchronous updating, and for display and analysis purposes, etc. Because there are two unique degrees of freedom per point, a full specification of the initial state of the system requires specifying these two values for each state.
 
@@ -65,15 +68,15 @@ It is important to be clear about the so-called **unique degrees of freedom** of
 The mass term showing up in the basic wave equation arises because we need to translate the restoring force into an acceleration, and the basic laws of physics dictate that mass is what mediates this translation: informally, it is how much resistance or inertia the system has in the face of forces acting upon it. Intuitively, it makes sense that this mass would determine how fast waves will propagate in the system: with a higher mass, waves will move more slowly because they will resist the neighborhood forces more strongly. Indeed, it turns out that the speed of wave propagation is inversely proportional to this mass, but with a squared term:
 
 - **speed of wave propagation, squared:** $c^2 = \frac{1}{m}$
-- **mass in terms of c squared:** $ m = \frac{1}{c^2} $
+- **mass in terms of c squared:** $m = \frac{1}{c^2}$
 
 where we are using *c* to represent the **speed of light** in the system. Waves using this simple second-order wave equation always travel at the same speed, and this speed is effectively the speed of light if these waves are electromagnetic waves (which we'll see in the next chapter can indeed be computed using this simple wave equation).
 
 Thus, we can re-write our basic equations using this speed-of-light factor, and while we're at it, we'll also introduce the "dot" and "double-dot" notation for the velocity and acceleration terms, reflecting the fact that the velocity is the first temporal derivative (one dot), and acceleration is the second temporal derivative (two dots). As we discuss in greater detail in the next section, the velocity is the slope or rate of change in the state value, while acceleration is the slope or rate of change of the velocity -- a double-slope or double-rate-of-change of the state value.
 
 - **acceleration:** $a^t_x = \ddot y^t_x = c^2 \left( y^t\_{x-1} + y^t\_{x+1} - 2 y^t_x \right)$
-- **velocity:** $ v^{t+1}\_x = \dot y^{t+1}\_x = \dot y^t_x + \ddot y^t_x $
-- **state:** $y^{t+1}\_x = y^t_x + \dot y^{t+1}\_x $
+- **velocity:** $v^{t+1}\_x = \dot y^{t+1}\_x = \dot y^t_x + \ddot y^t_x$
+- **state:** $y^{t+1}\_x = y^t_x + \dot y^{t+1}\_x$
 
 # Energy
 
@@ -113,8 +116,6 @@ When total energy is computed in the above way across all cells, it often does *
 todo: potential implications for gravitation, etc?
 
 # Exploration of 1D Waves
-
-\<div style="clear:both;"\>
 
 At this point, it is useful to use the [EmeWave](EmeWave "wikilink") simulator to see how the above equations give rise to wave behavior, so you have a solid understanding of that, along with some basic wave behavior, before continuing. Follow the directions given in the [Waves](waves_sim.md) exploration -- stick to the one dimensional wave equation for the time being -- we'll pick up the 3D one later.
 
@@ -159,30 +160,31 @@ $\frac{\partial^2y}{\partial x^2} = \frac{\partial}{\partial x} \frac{\partial y
 
 shows how this second order spatial derivative is computed in the discrete space and time CA framework -- you literally just take the difference between the two derivatives on either side of the central point. You have to keep dividing by the distance between cells $\epsilon$ every time you do a derivative, so that ends up being squared in the denominator:
 
-- **second order spatial derivative:**
-
-  
-$\frac{\partial^2y}{\partial x^2} = \frac{\left( \frac{y^t\_{x+1} - y^t_x}{\epsilon} \right) - \left( \frac{y^t_x - y^t\_{x-1}}{\epsilon} \right)}{\epsilon} = \frac{1}{\epsilon^2} (y^t\_{x+1} + y^t\_{x-1}) - 2 y^t_x$
+- **second order spatial derivative:** $\frac{\partial^2y}{\partial x^2} = \frac{\left( \frac{y^t\_{x+1} - y^t_x}{\epsilon} \right) - \left( \frac{y^t_x - y^t\_{x-1}}{\epsilon} \right)}{\epsilon} = \frac{1}{\epsilon^2} (y^t\_{x+1} + y^t\_{x-1}) - 2 y^t_x$
 
 Interestingly, this second order spatial derivative is effectively the same as the restoring force in the wave equation -- there is just a factor of the epsilon squared difference between them:
 
 - **restoring force:** $f = \left( \frac{y^t\_{x-1} + y^t\_{x+1}}{2} \right) - 2 y^t_x = \epsilon^2 \frac{\partial^2y}{\partial x^2} $
-
-  
-  
-$ = \left( y^t\_{x+1} + y^t\_{x-1} \right) - 2 y^t_x $
+    
+$= \left( y^t\_{x+1} + y^t\_{x-1} \right) - 2 y^t_x$
 
 We normally set this epsilon constant to be 1 in the native units of the simulation, so that it effectively disappears from the computation. Nevertheless, understanding these constants is important when trying to get all the units right, but they don't affect the core conceptual basis of what is going on, which is that the restoring force is driven by the curvature of the curvature (slope of the slope) of the wave medium.
 
 To complete our new second-order derivative based wave equation, we can write the acceleration as a second-order temporal derivative:
 
-- **acceleration:** $a = \ddot y^t_x = \frac{\partial^2 y}{\partial t^2} $ = rate of change of rate of change.
+- **acceleration:** $a = \ddot y^t_x = \frac{\partial^2 y}{\partial t^2}$
+
+= rate of change of rate of change.
 
 Putting this all together, we can now transform our previous equation for the wave acceleration:
 
 - **acceleration:** $\ddot y^t_x = c^2 \left( y^t\_{x-1} + y^t\_{x+1} - 2 y^t_x \right)$
 
-into the following elegant expression based on second-order derivatives: \frac{\partial^2 y}{\partial t^2} {{=}} c^2 \frac{\partial^2y}{\partial x^2} $}} Note that this equation directly implies the velocity and state update equations given above, which are really definitional in terms of what a velocity is: a velocity is updated by an acceleration, and it updates the state value. Thus, this one equation captures everything needed to produce wave dynamics.
+into the following elegant expression based on second-order derivatives: 
+
+- $\frac{\partial^2 y}{\partial t^2} {{=}} c^2 \frac{\partial^2y}{\partial x^2}}$
+
+Note that this equation directly implies the velocity and state update equations given above, which are really definitional in terms of what a velocity is: a velocity is updated by an acceleration, and it updates the state value. Thus, this one equation captures everything needed to produce wave dynamics.
 
 The wave equation has a very nice symmetry, where the second-order temporal derivative is equal to the second-order spatial derivative. In other words, the rate of change of the rate of change over time is driven by the rate of change of the rate of change over space.
 
@@ -193,8 +195,6 @@ Thus, this wave equation seems like a highly auspicious starting point, if we wa
 Next, we extend this wave equation to the full three-dimensional case, which just requires a little bit more mathematical notation, and some interesting ways of integrating across the 26 neighbors in 3D space.
 
 # Waves in Three Dimensions
-
-\sqrt{2}$ away, and corners are $\sqrt{3}$ away.}}
 
 The second-order wave equation in three-dimensional space is not too different at an abstract mathematical level from the one dimension case -- you basically just have to add extra terms for each of the additional dimensions. One minor complication is that we conventionally use *x,y,z* for the spatial dimensions, and we've been previously using *y* to represent the state value, so now we'll switch over to the notation that is typically used in quantum physics, based on the Greek symbols "psi" $\psi$, "phi" $\phi$, and a variant of phi: $\varphi$. To keep things consistent and clear over the course of the book, we establish the following convention for these state variables:
 
@@ -222,7 +222,11 @@ The idea that the Laplacian is the gradient squared ($\nabla^2$) must be taken a
 
 where **F** is a vector field, e.g., of the sort that would be generated by taking the gradient of a 3D scalar field. It is hopefully at least somewhat clear how taking the divergence of the gradient of our scalar field results in the expression for the Laplacian: each of the 3 separate derivatives in the gradient gets the second-order treatment by virtue of the derivatives in the divergence, and the result gets added up into a single overall number as shown in the divergence equation.
 
-The conceptual bottom line for the Laplacian is the same as before: it measures the overall curvature of the curvature (slope of the slope) of the local neighborhood around the central point, and this is the total restoring force that drives acceleration. The Laplacian symbol just allows us to write the overall equation in an even simpler form: \frac{\partial^2 \varphi}{\partial t^2} {{=}} c^2 \nabla^2 \varphi $}} We prefer the $\nabla^2$ version of the Laplacian because it conveys its essential second-order nature.
+The conceptual bottom line for the Laplacian is the same as before: it measures the overall curvature of the curvature (slope of the slope) of the local neighborhood around the central point, and this is the total restoring force that drives acceleration. The Laplacian symbol just allows us to write the overall equation in an even simpler form:
+
+$\frac{\partial^2 \varphi}{\partial t^2} {{=}} c^2 \nabla^2 \varphi$
+
+We prefer the $\nabla^2$ version of the Laplacian because it conveys its essential second-order nature.
 
 Embedded in all this math is an absolutely critical point that emerges only in this 3D version of the wave equation, compared to the 1D version: **the Laplacian adds up all the curvature around it into one single number, causing an inevitable blending of signals coming from different directions.** The net result of this is that *a wave packet that is initially localized will inevitably end up spreading out over space,* due to this mixing of curvature across different directions. As we discussed in the [Introduction](ch01_intro.md), this spreading of the wave packet represents a critical problem for the pure wave model, and we can see that it enters very directly and inexorably into even the most basic wave equation. All the subsequent wave equations we will develop share this core Laplacian spreading behavior, and thus inherit this important problem.
 
@@ -230,14 +234,11 @@ Embedded in all this math is an absolutely critical point that emerges only in t
 
 Now we consider how to compute the 3D Laplacian in the discrete space and time CA framework. To start, we only consider the 6 faces adjacent to the central point (), which are relatively easy because each pair of opposing faces can be treated just like a separate one-dimensional second-order derivative like we computed before, so we just have three times the number of terms as before:
 
-- **discrete 3D Laplacian, faces only:**
-
-  
-$ \nabla^2 \varphi = \frac{1}{\epsilon^2} \left( \varphi\_{(1,0,0)} + \varphi\_{(-1,0,0)} + \varphi\_{(0,1,0)} + \varphi\_{(0,-1,0)} + \varphi\_{(0,0,1)} + \varphi\_{(0,0,-1)} - 6 \varphi\_{(0,0,0)} \right) $
+- **discrete 3D Laplacian, faces only:** $\nabla^2 \varphi = \frac{1}{\epsilon^2} \left( \varphi\_{(1,0,0)} + \varphi\_{(-1,0,0)} + \varphi\_{(0,1,0)} + \varphi\_{(0,-1,0)} + \varphi\_{(0,0,1)} + \varphi\_{(0,0,-1)} - 6 \varphi\_{(0,0,0)} \right)$
 
 where the subscript indicates the relative offset along the *(x,y,z)* dimensions from the central point, which is then at *(0,0,0)*. We can simplify this expression by just computing a sum of pairwise differences for each face element:
 
-- **discrete 3D Laplacian, faces only:** $ \nabla^2 \varphi = \frac{1}{\epsilon^2} \sum\_{j \in N\_{faces}} (\varphi_j - \varphi_0) $
+- **discrete 3D Laplacian, faces only:** $\nabla^2 \varphi = \frac{1}{\epsilon^2} \sum\_{j \in N\_{faces}} (\varphi_j - \varphi_0)$
 
 where *j* is just an index into the set of 6 different faces and $\varphi_0$ is the central point.
 
@@ -245,10 +246,10 @@ The problem with only using the 6 face neighbors is that it misses all the curva
 
 The anisotropy problem can be fixed by including all 26 neighbors, in a relatively simple generalization of the last sum-based expression: \nabla^2 \varphi {{=}} \frac{3}{13 \epsilon^2} \sum\_{j \in N\_{26}} k_j (\varphi_j - \varphi_0) $}} The key to making this work is to have different weighting factors $k_j$ for the different neighbors, depending on their Euclidian distance *d* from the central point:
 
-- **neighbor weight:** $ k_j = \frac{1}{d^2} $
-  - **faces:** $ k_j = 1 $
-  - **edges:** $ k_j = \frac{1}{2} $
-  - **corners:** $ k_j = \frac{1}{3} $
+- **neighbor weight:** $k_j = \frac{1}{d^2} $
+- **faces:** $k_j = 1 $
+- **edges:** $k_j = \frac{1}{2} $
+- **corners:** $k_j = \frac{1}{3} $
 
 The full mathematical justification for this equation, and the demonstration of its isotropic behavior relative to the standard 6-face version, is given in the following unpublished manuscript:
 
@@ -260,7 +261,7 @@ This is the equation we use in the remainder of the simulations in this book. As
 
 The equation for the wave energy for the 3D version just requires an update to the potential energy component -- the kinetic energy component is identical, as it only involves the temporal derivative which remains the same regardless of the dimensionality. The one-dimensional equation generalizes in a straightforward manner to 3D, where we just add up the squared neighborhood differences, using the same weighting factors as in computing the Laplacian:
 
-- **potential energy in 3D, all 26 neighbors:** $ E_p = \frac{3}{13 \epsilon^2} \sum\_{j \in N\_{26}} k_j (\varphi_j - \varphi_0)^2 $
+- **potential energy in 3D, all 26 neighbors:** $E_p = \frac{3}{13 \epsilon^2} \sum\_{j \in N\_{26}} k_j (\varphi_j - \varphi_0)^2 $
 
 # Dealing with Edges
 
@@ -290,3 +291,4 @@ Here are some movies of the larger simulations in action:
 One quick technical note regarding how the **initial conditions** of our simulations are constructed. To construct a moving wave, you just set the current state to be the desired wave shape (e.g., a wave packet), and set the prior state to be that same shape offset by the distance that the wave should travel in one time step (i.e., c). Then, you initialize the velocity to be the difference between these states (current - prior) -- this ensures that the velocity is exactly as needed to keep the same wave shape moving along. It turns out that this velocity is *not* mathematically identical to a wave packet when the states are wave packets -- it is very close to being so, but not exactly.
 
 Now that you have a solid understanding of basic wave behavior in their full three-dimensional glory, we are ready to explore a wide range of electromagnetic phenomena in the next chapter.
+
