@@ -14,12 +14,9 @@ The restoring force *f* pulling back on a given point is the total disturbance o
 
 We start by deriving the second order wave equation from basic Newtonian physical principles, in a simple one-dimensional case with discrete uniform cells each having a "state value" that represents the "stuff" that moves around in the wave (e.g., the height of water) (). Time is also discretized, with everything computed in discrete time steps, consistent with the **cellular automaton (CA)** framework discussed in the [Introductory Chapter](ch01_intro.md). In the notation of the figure, we label the location of each cell using the index *x*, and each time step with the index *t*, and the current state value of a given cell as $y^t_x$. The restoring force is proportional to the difference in state values between a given point and its two neighbors on either side:
 
-- **restoring force:** 
-
-$$
-f = f_l + f_r = \left( y^t\_{x-1} - y^t_x \right) + \left( y^t\_{x+1} - y^t_x \right)
+- **restoring force:** $f = f_l + f_r = \left( y^t\_{x-1} - y^t_x \right) + \left( y^t\_{x+1} - y^t_x \right)
   = \left( y^t\_{x-1} + y^t\_{x+1} \right) - 2 y^t_x
-$$
+$
 
 Using the standard equations of Newtonian physics, e.g., $f=ma$, this force then drives an acceleration *a*:
 
@@ -137,10 +134,7 @@ Technically speaking, the true derivative involves shrinking the epsilon infinit
 
 In addition to the spatial derivative (slope) shown in , there is also a **temporal derivative** that involves computing the change in the state values over a discrete increment in *time*, instead of over a discrete distance in *space*. These temporal derivatives have the special dot notation that we introduced earlier:
 
-- **temporal derivative (rate of change):**
-
-  
-$\dot y = \frac{dy}{dt} = \frac{\mbox{change in y values}}{\mbox{change in time}}$.
+- **temporal derivative (rate of change):** $\dot y = \frac{dy}{dt} = \frac{\mbox{change in y values}}{\mbox{change in time}}$.
 
 To be fully mathematically correct, whenever you have multiple different variables at work (such as space and time), you should use a **partial derivative** notation $\partial$ instead of just the regular letter "d":
 
@@ -151,12 +145,7 @@ This partial letter is more difficult to draw in the figures, so we often just u
 
 Because the wave equation deals with *acceleration*, it is *second order* and this means that we need to deal with **second order derivatives**, which just mean doing the derivative of the derivative -- just do it twice! This means computing the slope of the slope, or the rate of change of the rate of change:
 
-- **second order spatial derivative:**
-
-  
-$\frac{\partial^2y}{\partial x^2} = \frac{\partial}{\partial x} \frac{\partial y}{\partial x}$
-
-= change in change in y over change in $x^2$.
+- **second order spatial derivative:** $\frac{\partial^2y}{\partial x^2} = \frac{\partial}{\partial x} \frac{\partial y}{\partial x}$ = change in change in y over change in $x^2$.
 
 shows how this second order spatial derivative is computed in the discrete space and time CA framework -- you literally just take the difference between the two derivatives on either side of the central point. You have to keep dividing by the distance between cells $\epsilon$ every time you do a derivative, so that ends up being squared in the denominator:
 
