@@ -148,11 +148,11 @@ Coulomb's law for the strength of the electric field as a function of distances 
 
 In contrast, Maxwell's equations in the Lorenz gauge provide a very appealing physical model of electromagnetism (EM), involving simple local wave propagation dynamics operating on the four-vector potential (we'll describe later exactly what this math means -- for the time being, just appreciate how incredibly simple this equation appears, and also appreciate that it describes a completely local interaction):
 
-- $
+$$
+\partial_\mu \partial^\mu A^\mu = k_\mu J^\mu
+$$
 
-`\partial_\mu \partial^\mu A^\mu = k_\mu J^\mu`
-
-$ In this physical model, EM waves naturally propagate at the speed of light, everything is automatically consistent with the constraints of special relativity, and it is again easy to imagine how autonomous physics can happen like this.
+In this physical model, EM waves naturally propagate at the speed of light, everything is automatically consistent with the constraints of special relativity, and it is again easy to imagine how autonomous physics can happen like this.
 
 Nevertheless, the reason that people still use Newton's gravitational equation instead of Einstein's equations, and prefer the Coulomb gauge over the Lorenz gauge, is that these frameworks are vastly simpler for calculating the kinds of experimental results people actually need in practical applications. Thus, it should be clear that both calculational tools and physical models play essential and complementary roles in the field, and should in no way be construed as mutually exclusive (even though people inevitably do). Even though physical models are often not convenient frameworks for calculation, they play a crucial role in grounding and constraining physical intuition, which should then inform the application of calculational tools. In particular, calculational tools often contain shortcuts and simplifications relative to the underlying physical model, and one can obtain nonsensical results if these are not appreciated (e.g., accidental violations of speed-of-light propagation in the Coulomb representation).
 
@@ -176,9 +176,11 @@ We begin by returning to the year of 1905, and another of Einstein's triumvirate
 
 Einstein's model borrowed some key ideas from Planck's 1901 paper on blackbody radiation, which introduced Planck's constant *h*, and arguably represents the very first paper on quantum mechanics. In this paper, Planck was able to accurately characterize the spectrum of thermal black-body radiation in terms of quantized oscillators whose energy was proportional to their frequency, but he made no particular commitment to the physical nature of these discrete oscillators, and regarded them initially as merely mathematical contrivances. Einstein in turn postulated discrete particle-like entities that carry energy in proportion to their frequency $\nu$ times Planck's constant:
 
-- $
+$$
+E = h \nu
+$$
 
-E = h \nu $ This accounts in principle for the photoelectric effect, because there is no longer any intensity in the energy equation -- only frequency. An intense beam just has more instances of these discrete photons, but if none of them individually have sufficient energy to excite the atom, then the number of them doesn't matter. There is an assumption that only one photon can interact with an electron at a time, so energy from multiple photons cannot contribute additively.
+This accounts in principle for the photoelectric effect, because there is no longer any intensity in the energy equation -- only frequency. An intense beam just has more instances of these discrete photons, but if none of them individually have sufficient energy to excite the atom, then the number of them doesn't matter. There is an assumption that only one photon can interact with an electron at a time, so energy from multiple photons cannot contribute additively.
 
 This is the first instance of the paradoxical *wave-particle duality* that lies at the heart of quantum physics. This photon particle model has no clear relationship to the classical EM field described by Maxwell's equations, and this juxtaposition of two radically different descriptions of the same thing has left people in a quandary ever since. As with special relativity and Michelson-Morley, things might have been different if extant classical principles had not been so quickly rejected in favor of the beguilingly simple photon model. Like special relativity, this quantum photon model is a calculational tool that does a great job of providing a simple description of the phenomena in question, and is extremely handy for calculating the results of experiments, but it really obscures the underlying mechanisms at work.
 
@@ -216,9 +218,11 @@ The dominant classical physical model of the atomic system in the early 1900's w
 
 In 1913, Niels Bohr provided an apparent solution to the problem, leveraging the emerging quantum ideas of Planck and Einstein. He postulated that electrons can only have orbits where the angular momentum is restricted to an integer multiple of Planck's constant:
 
-- $
+$$
+L = n \hbar = n \frac{h}{2\pi}
+$$
 
-L = n \hbar = n \frac{h}{2\pi} $ Although the reason for this restriction was not clear, it immediately made sense of a great deal of data, including the Rydberg formula for hydrogen emission spectra. Interestingly, Bohr's initial model retained the classical electromagnetic field according to Maxwell's equations.
+Although the reason for this restriction was not clear, it immediately made sense of a great deal of data, including the Rydberg formula for hydrogen emission spectra. Interestingly, Bohr's initial model retained the classical electromagnetic field according to Maxwell's equations.
 
 ### Matter Waves
 
@@ -226,8 +230,8 @@ The justification for Bohr's restriction on atomic orbits came in 1924, when Lou
 
 The experimental confirmation of de Broglie's matter wave hypothesis came in 1927 in an experiment by Davisson and Germer, who found that electrons moving through a crystal exhibit a diffraction pattern -- such a pattern can only be produced by some kind of wave-like process, and calculations showed that the de Broglie wavelength predicted for the electrons fit the observed diffraction pattern quite well:
 
-- $ p = \frac{h}{\lambda} $
-- $ \lambda = \frac{h}{p} $
+$$ p = \frac{h}{\lambda} $$
+$$ \lambda = \frac{h}{p} $$
 
 where p is the momentum, h is Planck's constant, and $\lambda$ is the de Broglie wavelength. This is about .165 nanometers for the electrons in the Davisson-Germer experiment (very tiny, but enough to produce a measurable diffraction pattern through the crystal).
 
