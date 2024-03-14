@@ -259,7 +259,12 @@ It should be clear that the first squared term is just the complex KG equation c
 
 Now for the Pauli matricies $\vec{\sigma}$. This is a vector of values $(\sigma_x, \sigma_y, \sigma_z)$ that enter into a dot product with the complex-valued vector composed of the magnetic and electric field values $\vec{B}$ and $\vec{E}$:
 
-- $\vec{\sigma} = \left( \left( \begin{array}{cc}0 & 1\\ 1 & 0 \end{array} \right), \left( \begin{array}{cc}0 & -i \\ i & 0 \end{array} \right),  \left( \begin{array}{cc} 1 & 0 \\ 0 & -1 \end{array} \right) \right)$
+$$
+\vec{\sigma} = \left( \left( \begin{array}{cc}0 & 1\\
+1 & 0 \end{array} \right), \left( \begin{array}{cc}0 & -i \\
+i & 0 \end{array} \right),  \left( \begin{array}{cc} 1 & 0 \\
+0 & -1 \end{array} \right) \right)
+$$
 
 In the end, the net result of the dot product with an arbitrary vector $\vec{p}$ is:
 
@@ -268,14 +273,27 @@ In the end, the net result of the dot product with an arbitrary vector $\vec{p}$
 So applied to our $\vec{B} + i\vec{E}$ vector, it is:
 
 - $\vec{\sigma} \cdot \left(\vec{B} + i \vec{E} \right) = $
-- $\left( \begin{array}{cc} B_z + iE_z & B_x + iE_x - iB_y + E_y \\ B_x + iE_x + i B_y -E_y & -B_z - iE_z \end{array} \right) = $
-- $\left( \begin{array}{cc} B_z + iE_z & B_x + E_y + i(E_x - B_y) \\ B_x - E_y + i(E_x + B_y) & -B_z - iE_z \end{array} \right) $
+
+$$
+\left( \begin{array}{cc} B_z + iE_z & B_x + iE_x - iB_y + E_y \\
+B_x + iE_x + i B_y -E_y & -B_z - iE_z \end{array} \right) =
+$$
+
+$$
+\left( \begin{array}{cc} B_z + iE_z & B_x + E_y + i(E_x - B_y) \\
+B_x - E_y + i(E_x + B_y) & -B_z - iE_z \end{array} \right)
+$$
 
 So, now we're getting some sense of how this works: different components of the electromagnetic field exert different forces on the different components of the $\psi$ state, producing a rotational effect.
 
 This entire result then is multiplied by the two complex numbers in the $\psi$ state: {\small
 
-- $\left( \begin{array}{cc} B_z + iE_z & B_x + E_y + i(E_x - B_y) \\ B_x - E_y + i(E_x + B_y) & -B_z - iE_z \end{array} \right) \times \left( \begin{array}{c} \varphi\_{1a} + i \varphi\_{1b} \\ \varphi\_{2a} + i \varphi\_{2b} \end{array} \right) $
+$$
+\left( \begin{array}{cc} B_z + iE_z & B_x + E_y + i(E_x - B_y) \\
+B_x - E_y + i(E_x + B_y) & -B_z - iE_z \end{array} \right)
+\times \left( \begin{array}{c} \varphi\_{1a} + i \varphi\_{1b} \\
+\varphi\_{2a} + i \varphi\_{2b} \end{array} \right)
+$$
 
 Which produces this for the first complex number:
 
