@@ -13,15 +13,19 @@ An important issue with the electrical scalar potential is that it is always jus
 
 In the absence of any charges (i.e., in empty space), the electrical scalar potential (we use the $A_0$ symbol, to be consistent with the $\vec{A}$ vector potential) obeys the standard second-order wave equation:
 
-- **electrical scalar potential, no charges:** $ \frac{\partial^2 {A_0}}{\partial t^2} = c^2 \nabla^2 A_0 $
+- **electrical scalar potential, no charges:** $\frac{\partial^2 {A_0}}{\partial t^2} = c^2 \nabla^2 A_0 $
 
 This means that you already understand exactly how this potential will behave, based on the explorations in the [Waves Chapter](ch02_waves.md). It will propagate at the speed of light (*c*), exhibit spreading over time due to the nature of the 3D Laplacian, etc.
 
-To include the effects of **electrical charge**, we can extend the equation to include a simple additive factor that is proportional to the local charge density, written by convention as the Greek letter "rho" $\rho$: \frac{\partial^2 {A_0}}{\partial t^2} {{=}} c^2 \nabla^2 A_0 + \frac{1}{\epsilon_0} \rho $}} we'll explain the $\epsilon_0$ (Greek epsilon) constant, known as the **permittivity of free space**, in more detail later. For now, it is just a constant that determines the impact of charge on the electric field. Remembering that the left-hand-side of this wave equation represents the acceleration of the electrical potential, this equation just says that in addition to the local curvature of the field driving acceleration as in the standard wave equation, electrical charge will impart an additional acceleration. It should be clear how our discrete cellular-automaton based wave equation can be augmented to include this extra charge force -- you literally just add this term into the acceleration, which then increments the velocity, which then increments the electrical potential state value.
+To include the effects of **electrical charge**, we can extend the equation to include a simple additive factor that is proportional to the local charge density, written by convention as the Greek letter "rho" $\rho$:
+
+- $\frac{\partial^2 {A_0}}{\partial t^2} {{=}} c^2 \nabla^2 A_0 + \frac{1}{\epsilon_0} \rho $
+
+we'll explain the $\epsilon_0$ (Greek epsilon) constant, known as the **permittivity of free space**, in more detail later. For now, it is just a constant that determines the impact of charge on the electric field. Remembering that the left-hand-side of this wave equation represents the acceleration of the electrical potential, this equation just says that in addition to the local curvature of the field driving acceleration as in the standard wave equation, electrical charge will impart an additional acceleration. It should be clear how our discrete cellular-automaton based wave equation can be augmented to include this extra charge force -- you literally just add this term into the acceleration, which then increments the velocity, which then increments the electrical potential state value.
 
 In the discrete space-time analog cellular automaton framework, the equations for the scalar potential are:
 
-- $ \ddot A_0^{t+1} = \frac{3}{13}\sum\_{j \in N\_{26}} k_j ({A_0}\_j - {A_0}\_i) + \frac{1}{\epsilon_0} \rho $
+- $\ddot A_0^{t+1} = \frac{3}{13}\sum\_{j \in N\_{26}} k_j ({A_0}\_j - {A_0}\_i) + \frac{1}{\epsilon_0} \rho $
 
 which is then integrated into a first-order term (velocity):
 
@@ -29,11 +33,17 @@ which is then integrated into a first-order term (velocity):
 
 and finally the state variable is updated:
 
-- $ A_0^{t+1} = A_0^t + \dot A_0^{t+1} $
+- $A_0^{t+1} = A_0^t + \dot A_0^{t+1} $
 
-This wave equation fully characterizes the behavior of the electrical field -- *we don't need anything else to numerically simulate it, and account for all known behavior of the field itself.* Thus, from a physical perspective, we can imagine that only this electrical potential field exists, and things like light waves are just wave propagation over this field. However, to understand how this electrical field influences charged "particles" such as the electron, we do need to extract the electric field vector, which represents the force exerted by the electric field. We can think of this physically as reflecting the force impact of the electrical potential field, derived entirely from the potential, and not as a separate physical entity. Electrical forces ensue from the slope of change (i.e., the **gradient**, as introduced in the waves chapter and pictured in ) of the electrical scalar potential across space, plus the rate of change of the magnetic vector field, which we'll discuss later. Loosely speaking, if you have more potential in one place than another, there is a pressure to flow "downhill" along this gradient to equalize the potential. Mathematically speaking, this can be expressed as: \vec{E} {{=}} - \vec{\nabla} A_0 - \frac{\partial \vec{A}}{\partial t}$}} In words, the electrical field is the spatial gradient of the scalar potential (plus the temporal derivative of the magnetic vector potential $\vec{A}$). Recall the definition of the gradient operator $\vec{\nabla}$ from before: it computes the slope or amount of change in a scalar field along each of the three axes, yielding a vector of three values ().
+This wave equation fully characterizes the behavior of the electrical field -- *we don't need anything else to numerically simulate it, and account for all known behavior of the field itself.* Thus, from a physical perspective, we can imagine that only this electrical potential field exists, and things like light waves are just wave propagation over this field. However, to understand how this electrical field influences charged "particles" such as the electron, we do need to extract the electric field vector, which represents the force exerted by the electric field. We can think of this physically as reflecting the force impact of the electrical potential field, derived entirely from the potential, and not as a separate physical entity. Electrical forces ensue from the slope of change (i.e., the **gradient**, as introduced in the waves chapter and pictured in ) of the electrical scalar potential across space, plus the rate of change of the magnetic vector field, which we'll discuss later.
 
-To actually compute this vector quantity in our discrete 3D framework, we need a discrete gradient operator that is basically just the first-order version of the discrete Laplacian operator that we introduced in the [Waves Chapter](ch02_waves.md). It is described in detail in this subsection: [Discrete Gradient](WELDBook/Discrete_Gradient "wikilink").
+Loosely speaking, if you have more potential in one place than another, there is a pressure to flow "downhill" along this gradient to equalize the potential. Mathematically speaking, this can be expressed as:
+
+- $\vec{E} {{=}} - \vec{\nabla} A_0 - \frac{\partial \vec{A}}{\partial t}$
+
+In words, the electrical field is the spatial gradient of the scalar potential (plus the temporal derivative of the magnetic vector potential $\vec{A}$). Recall the definition of the gradient operator $\vec{\nabla}$ from before: it computes the slope or amount of change in a scalar field along each of the three axes, yielding a vector of three values ().
+
+To actually compute this vector quantity in our discrete 3D framework, we need a discrete gradient operator that is basically just the first-order version of the discrete Laplacian operator that we introduced in the [Waves Chapter](ch02_waves.md). It is described in detail in this subsection: [Discrete Gradient](#discrete_gradient).
 
 == 1/r Potential Dropoff = 1/r^2 Force Field ==
 
@@ -51,17 +61,15 @@ You can now explore how charge drives the electrical potential, the 1/r falloff 
 
 # The Magnetic Vector Potential
 
-\vec{\nabla} \times$ of a vector field is how much the vector arrows tend to rotate around a central point. In this case, we measure curl in the *Z* axis in terms of its rotation within the *X-Y* plane.}}
-
 Magnetism is a bit more complex than the electrical field. Instead of a single scalar potential field, it requires a vector potential field, and each of the three components of this vector potential field propagates according to the basic second-order wave equation, with the driving source being the **current** vector $\vec{J}$: \frac{\partial^2 \vec{A}}{\partial t^2} {{=}} c^2 \nabla^2 \vec{A} + \mu_0 \vec{J} $}} Interestingly, the wave equation operates separately on each term. Therefore, the wave equation operating on the vector $\vec{A}$ is the same thing as having three separate wave equations operating in parallel on each of the components of the vector:
 
-- $ \frac{\partial^2 A_x}{\partial t^2} = c^2 \nabla^2 A_x + \mu_0 J_x $
-- $ \frac{\partial^2 A_y}{\partial t^2} = c^2 \nabla^2 A_y + \mu_0 J_y $
-- $ \frac{\partial^2 A_z}{\partial t^2} = c^2 \nabla^2 A_z + \mu_0 J_z $
+- $\frac{\partial^2 A_x}{\partial t^2} = c^2 \nabla^2 A_x + \mu_0 J_x $
+- $\frac{\partial^2 A_y}{\partial t^2} = c^2 \nabla^2 A_y + \mu_0 J_y $
+- $\frac{\partial^2 A_z}{\partial t^2} = c^2 \nabla^2 A_z + \mu_0 J_z $
 
 The computation of the vector potential terms $\vec{A}$ similarly just follow the standard wave equations with an additional source term from the current vector $\vec{J}$. For the $x$ component of $\vec{A}$, the acceleration term is:
 
-- $ \ddot A_x^{t+1} = \frac{3}{13} \sum\_{j \in N\_{26}} k_j ({A_x}\_j - {A_x}\_i) + \mu_0 J_x $
+- $\ddot A_x^{t+1} = \frac{3}{13} \sum\_{j \in N\_{26}} k_j ({A_x}\_j - {A_x}\_i) + \mu_0 J_x $
 
 and similar equations hold for the $y$ and $z$ components.
 
@@ -69,18 +77,16 @@ As with the electric potential field, we can capture all of the known physics of
 
 Intuitively, curl indicates the extent to which the arrows in a local region are spinning around. Formally, curl is defined as:
 
-- **curl:** $ \vec{\nabla} \times \vec{B} \equiv \left( \left\[\frac{\partial {B_z}}{\partial {y}} - \frac{\partial {B_y}}{\partial {z}}
-
-` \right], \left[\frac{\partial {B_x}}{\partial {z}} - \frac{\partial {B_z}}{\partial {x}} \right], \left[\frac{\partial {B_y}}{\partial {x}} -`  
-` \frac{\partial {B_x}}{\partial {y}} \right] \right) {{< /math >}}`
+- **curl:** $\vec{\nabla} \times \vec{B} \equiv \left( \left\[\frac{\partial {B_z}}{\partial {y}} - \frac{\partial {B_y}}{\partial {z}}$
+- $\right], \left[\frac{\partial {B_x}}{\partial {z}} - \frac{\partial {B_z}}{\partial {x}} \right], \left[\frac{\partial {B_y}}{\partial {x}} - \frac{\partial {B_x}}{\partial {y}} \right] \right)$
 
 So, the $x$ (first) component of the curl is the crossed spatial gradient of the other two dimensions ($z$ by $y$ and $y$ by $z$), and likewise for the remaining factors. Intuitively, each component measures how much the field is spinning around that dimension.
 
-Here is how to compute the curl in the discrete space-time cellular-automaton framework: [Discrete Curl](WELDBook/Discrete_Curl "wikilink") -- it is very similar to the way that the discrete gradient is computed, just with additional subtraction terms.
+Here is how to compute the curl in the discrete space-time cellular-automaton framework: [Discrete Curl](#discrete_curl) -- it is very similar to the way that the discrete gradient is computed, just with additional subtraction terms.
 
 ## Exploration of the Magnetic Potential
 
-Open the [EM](WELDBook/Sims/EM/EM "wikilink") simulation and follow the directions under the vector magnetic field section.
+Open the [EM](em_sim.md) simulation and follow the directions under the vector magnetic field section.
 
 # Maxwell's Equations
 
@@ -88,7 +94,7 @@ Now that you understand how the electromagnetic potential fields propagate over 
 
 Maxwell's equations are all in terms of the electric force vector field $\vec{E}$ and magnetic force vector field $\vec{B}$:
 
-- $ \vec{E} = (E_x, E_y, E_z) $
+- $\vec{E} = (E_x, E_y, E_z) $
 - $\vec{B} = (B_x, B_y, B_z)$
 
 Maxwell's four equations (in SI metric standard units) are:
