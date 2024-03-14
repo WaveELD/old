@@ -200,7 +200,7 @@ Nevertheless, here is the argument for the electromagnetic coupling being a form
 
 Where the $\chi$ term is the amount that you're rotating (the rest are just convenient constants for getting $\chi$ into the right units) --- think of it as some number of degrees of rotating the underlying $\varphi_a$ value into $\varphi_b$ (and vice-versa) for the complex number $\phi$.
 
-If $\chi$ is independent of location ($x$), then it is just a constant and nothing happens. This is a *global* gauge/phase transformation, and it is not very interesting. However, if $\chi$ is now itself a function of location (i.e., $\chi(x)$), this is a *local* gauge transformation, and this is where the electromagnetic coupling comes in. If you have such a local variable, and you take the derivative of the resulting overall system that includes this locally-varying thing, you get this extra term for the derivative of $\chi(x)$ with respect to x:
+If $\chi$ is independent of location ($x$), then it is just a constant and nothing happens. This is a *global* gauge/phase transformation, and it is not very interesting. However, if $\chi$ is now itself a function of location (i.e., $\chi(x)$ ), this is a *local* gauge transformation, and this is where the electromagnetic coupling comes in. If you have such a local variable, and you take the derivative of the resulting overall system that includes this locally-varying thing, you get this extra term for the derivative of $\chi(x)$ with respect to x:
 
 - $\partial\_\mu \phi(x) \rightarrow \exp \left( \frac{ie}{\hbar c} \chi(x) \right) \left(\partial\_\mu + \frac{ie}{\hbar c} \partial\_\mu \chi(x) \right) \phi(x) $
 
@@ -236,7 +236,10 @@ Incidentally, quantum physics holds that photons (which we think of as wave pack
 
 Our first step is to introduce a new state variable $\psi$, to represent a field having four independent scalar values. Mathematically, this is defined as a vector of two complex numbers:
 
-- $\psi = \left( \begin{array}{c} \varphi\_{1a} + i \varphi\_{1b} \\ \varphi\_{2a} + i \varphi\_{2b} \end{array} \right) $
+$$
+\psi = \left( \begin{array}{c} \varphi\_{1a} + i \varphi\_{1b} \\
+\varphi\_{2a} + i \varphi\_{2b} \end{array} \right)
+$$
 
 where the first complex number is denoted with a subscript $1$, and contains the two real-valued components $\varphi\_{1a}$ and $\varphi\_{1b}$, and the second has subscript $2$, and contains $\varphi\_{2a}$ and $\varphi\_{2b}$. So, the spin is going to amount to these four variables rotating amongst themselves.
 
