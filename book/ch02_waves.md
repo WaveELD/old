@@ -1,3 +1,7 @@
+![fig1](figs/fig_wave_terminology.png)
+
+**Figure 1:** Terminology for wave properties: wavelength is the distance between repeating elements of the wave, amplitude is the height of the wave, and frequency (not shown) is how many oscillations of the wave take place per unit time.
+
 Waves are the foundation of the wave electrodynamics (WELD) model, so we start here by exploring the basic properties of the simplest kind of waves, produced by a **second-order wave equation**. This is an idealization of the kinds of waves that are familiar to you in everyday life: water waves, sound waves, guitar strings and drum surfaces vibrating, etc. There are a few key physical properties of these systems that produce wave behavior:
 
 - Stuff in one location can move in some way relative to stuff in neighboring locations, creating a **disturbance**: water molecules, guitar string, and drum skin can move up and down.
@@ -6,9 +10,13 @@ Waves are the foundation of the wave electrodynamics (WELD) model, so we start h
 
 We can capture these properties in a simple linear equation, which constitutes the standard second-order wave equation. It is "second order" in order to capture the inertia property.
 
-Aside from looking completely mesmerizing, these simple waves can exhibit some important properties. At the most basic level, we can measure things like **frequency**, **wavelength**, and **phase** of the wave vibrations (). And critically for understanding quantum mechanics, waves exhibit the amazing property of **superposition** () -- two different waves can pass right through each other and come out the other side unscathed, due to the linearity of the wave equation. This ability to encode many different things all added up together into one complex wave disturbance is leveraged in QM to capture a combination of different uncertain possibilities all wrapped up in one inscrutable package.
+Aside from looking completely mesmerizing, these simple waves can exhibit some important properties. At the most basic level, we can measure things like **frequency**, **wavelength**, and **phase** of the wave vibrations (Figure 1). And critically for understanding quantum mechanics, waves exhibit the amazing property of **superposition** (Figure 2) -- two different waves can pass right through each other and come out the other side unscathed, due to the linearity of the wave equation. This ability to encode many different things all added up together into one complex wave disturbance is leveraged in QM to capture a combination of different uncertain possibilities all wrapped up in one inscrutable package.
 
 # The Wave Equation: Newtonian Version
+
+![fig2](figs/fig_wave_eq_1d_simple.png)
+
+**Figure 2:** Key elements of the basic wave equation, in a discretized space and time system, where each discrete location (across the horizontal axis, indexed by coordinate ''x'') has a discrete state value ''y'' at a given time step ''t'', indicated as $y^t_x$.  The restoring force ''f'' pulling back on a given point is the total disturbance of that point relative to its two neighbors on either side, which is the sum of the differences between the state value at that point compared to the each of the two neighbors ($f = f_l + f_r$).  This force ''f'' creates an acceleration $a=f/m$, which in turn updates the velocity, which in turn drives a change in the state value for the next time step.  That's all there is to it.  This system has a built-in inertia (due to the basic Newtonian physics of force, acceleration and velocity), so it will end up overshooting the average of its neighbors (who meanwhile are on the move themselves) -- this all creates the fascinating wave dynamics.}}
 
 The restoring force *f* pulling back on a given point is the total disturbance of that point relative to its two neighbors on either side, which is the sum of the differences between the state value at that point compared to the each of the two neighbors ($f = f_l + f_r$). This force *f* creates an acceleration $a=f/m$, which in turn updates the velocity, which in turn drives a change in the state value for the next time step. That's all there is to it. This system has a built-in inertia (due to the basic Newtonian physics of force, acceleration and velocity), so it will end up overshooting the average of its neighbors (who meanwhile are on the move themselves) -- this all creates the fascinating wave dynamics.}}
 
@@ -77,6 +85,11 @@ Thus, we can re-write our basic equations using this speed-of-light factor, and 
 
 # Energy
 
+![fig3](figs/fig_pendulum_energy.png)
+
+**Figure 3:** Two forms of energy in a simple harmonic oscillator such as a pendulum: kinetic energy from the speed (velocity) of motion, and potential energy from the displacement relative to the resting position (in the pendulum case, this is gravitational energy that is then transformed into kinetic energy as the ball drops).  Each cell in our discrete wave system is a simple harmonic oscillator with both of these forms of energy -- potential energy is a function of the difference between the neighbor state values -- the same thing that drives the restoring force.
+
+
 As we progress to more complex wave equations, the concept of the energy associated with the wave will become critical. Energy must be strictly conserved over time, or otherwise the universe quickly gets out of balance -- exploding with too much energy or fading away into nothingness. Much of physics involves accounting for where all the energy is and how it gets transformed into different forms over time. Einstein's famous equation $E=mc^2$, which we saw some hint of above, is so important because it shows that there is energy trapped inside of matter, which can be liberated in various ways (e.g., nuclear bombs, or solar fusion reactions), which release great quantities of energy. This very fact of the ability to convert energy into different forms like this is suggestive of some kind of underlying common currency where matter and energy are fundamentally the same thing -- this is what the wave framework provides. Indeed, we will derive our matter wave equation by using Einstein's equation, showing exactly how matter and other forms of energy are all bound up together in single wave equation, whose undulations over time result in the constant conversion of energy into different forms.
 
 To ground our understanding of energy right at the start, we derive the energy equation for the simplest form of wave equation, given above. To figure out the correct equation, we start with an analogy to the **simple harmonic oscillator** exemplified by a swinging **pendulum** . As a pendulum swings, there is a continuous transformation between **kinetic energy**, which is a function of the speed of the swinging bob, and **potential energy**, which is a function of the height of the bob above its minimal height, which has potential energy because gravitational forces will push it down to its minimal height, producing kinetic energy in the process. Each cell in our discrete wave equation acts just like this simple harmonic oscillator. For example as a sine wave passes through a given point, the state at that point experiences a trajectory that is identical to the simple harmonic oscillator: it moves at different velocities going from 0 at the extreme top or bottom of the wave, to the fastest right in the middle of the wave disturbance. Thus, we can compute the kinetic and potential energy for a given point along the wave as simply the sum of these two energy components. Instead of the gravitational force, the potential energy arises from the restoring force, which depends on the local curvature of the wave.
@@ -114,15 +127,36 @@ todo: potential implications for gravitation, etc?
 
 # Exploration of 1D Waves
 
+![fig4](figs/fig_wave_superpos.png)
+
+**Figure 4:** Superposition of two wave packets, shown initially separate moving toward each other in the first (left) panel, then in a state of superposition where it is hard to imagine that two complete and separate wave packets could be latent within such a wave pattern (middle panel), and finally the two waves re-emerge fully intact after passing right through each other.  This mind-boggling property of linear wave equations plays a crucial role in standard quantum mechanics (QM), and also represents a major limitation of QM, in that it eliminates any way for such wave packets to interact with each other.
+
+![fig5](figs/fig_bound_wave_integer_fit.png)
+
+**Figure 5:** A wave within fixed bounds, having an integer number of wavelengths within the fixed width.  This ''bound state'' wave provides a basic model of the quantized atomic system -- the quantization comes entirely from the fact that the only stable wave configuration within such boundaries must have an integral number of wavelengths.  This is the quantum in quantum mechanics.
+
+
 At this point, it is useful to use the [EmeWave](EmeWave "wikilink") simulator to see how the above equations give rise to wave behavior, so you have a solid understanding of that, along with some basic wave behavior, before continuing. Follow the directions given in the [Waves](waves_sim.md) exploration -- stick to the one dimensional wave equation for the time being -- we'll pick up the 3D one later.
 
 One of the most fascinating and amazing properties that you'll explore in this simulation is **superposition**, as shown in -- it is even more compelling seeing it happen in full motion in the simulation.
 
 The absolutely critical point about superposition is this: **linear superposition means that the wave packets have no possible way of interacting with each other -- they just pass right through each other like ghosts** -- the entire edifice of standard quantum mechanics, being based on the linear Schrodinger wave equation, is thus fundamentally incapable of capturing any form of possible interaction among wave packets -- all interaction must be mediated either through an external potential, or more typically, by putting the waves into high-dimensional spaces where the interaction becomes an unfolding dynamic of wave propagation across these different dimensions.
 
-Another critical property of waves is that there must be an integer (discrete, quantized) number of wavelengths within a fixed-width boundary for the system to be stable (). You'll see this in the exploration by comparing the behavior of the system when this condition is true and when it is not true. This constraint is the *only* source of quantization in quantum mechanics, according to the WELD framework. Everything is actually fully continuous waves, but the atomic nucleus creates a potential well that traps electron waves, and these trapped electron waves thus must have only integer (quantized) wavelengths. This quantization of wavelength creates a corresponding quantization of the energy of the electron, giving rise to the discrete spectrum that Planck initially conceived of in his 1901 paper that started quantum mechanics. Critically, this discretization of wavelength makes the atomic system stable: it will radiate away energy until the electron wavelength achieves a stable quantized fit within the atomic system, and at this point, it will go no further because any perturbation away from this perfect quantized wavelength will be unstable, and push it back toward the stable quantized state.
+Another critical property of waves is that there must be an integer (discrete, quantized) number of wavelengths within a fixed-width boundary for the system to be stable (Figure 5). You'll see this in the exploration by comparing the behavior of the system when this condition is true and when it is not true. This constraint is the *only* source of quantization in quantum mechanics, according to the WELD framework. Everything is actually fully continuous waves, but the atomic nucleus creates a potential well that traps electron waves, and these trapped electron waves thus must have only integer (quantized) wavelengths. This quantization of wavelength creates a corresponding quantization of the energy of the electron, giving rise to the discrete spectrum that Planck initially conceived of in his 1901 paper that started quantum mechanics. Critically, this discretization of wavelength makes the atomic system stable: it will radiate away energy until the electron wavelength achieves a stable quantized fit within the atomic system, and at this point, it will go no further because any perturbation away from this perfect quantized wavelength will be unstable, and push it back toward the stable quantized state.
 
 # Second-order Derivative Formulation and the Laplacian
+
+![fig6](figs/fig_derivatives.png)
+
+**Figure 6:** A derivative is just the slope of a function at a given point -- figure shows the slopes at three different points on the function.  It is computed in discrete space and time in terms of the change in y divided by the change in x.
+
+![fig7](figs/fig_wave_eq_1d_derivatives.png)
+
+**Figure 7:** Discrete space derivatives for our wave equation, computed as difference in y values divided by space between "cells".
+
+![fig8](figs/fig_wave_eq_1d_laplacian.png)
+
+**Figure 8:** The second-order spatial derivative, which is the difference of the first-order derivatives around the central point, divided as we must do in a derivative by the distance between points.  This is the source of the restoring force in the wave equation, which should be familiar from the Newtonian version of the wave equation as shown in Figure 2.  When this equation is properly generalized to multiple spatial dimensions, it is called the *Laplacian*.
 
 Now that you understand how waves emerge from the simple wave equation, we can work in a bit more mathematical notation based on **derivatives**, moving beyond the dot and double-dot introduced above (). This will help in obtaining a more complete understanding of the wave equation, and provides a simpler, more compact notation that will be used in developing more complex wave equations later.
 
@@ -180,6 +214,15 @@ Thus, this wave equation seems like a highly auspicious starting point, if we wa
 Next, we extend this wave equation to the full three-dimensional case, which just requires a little bit more mathematical notation, and some interesting ways of integrating across the 26 neighbors in 3D space.
 
 # Waves in Three Dimensions
+
+![fig9](figs/fig_space_cubes_fec_lapl.png) 
+
+**Figure 9:** The 26 neighbors of a given cell in 3D space, each of which is weighted differently according to its distance -- faces are 1 unit away, edges are $\sqrt{2}$ away, and corners are $\sqrt{3}$ away.
+
+![fig10](figs/fig_gradient.png)
+
+**Figure 10:** The gradient, which is a vector consisting of the local slope along each of the different dimensions (two-dimensional case shown here).
+
 
 The second-order wave equation in three-dimensional space is not too different at an abstract mathematical level from the one dimension case -- you basically just have to add extra terms for each of the additional dimensions. One minor complication is that we conventionally use *x,y,z* for the spatial dimensions, and we've been previously using *y* to represent the state value, so now we'll switch over to the notation that is typically used in quantum physics, based on the Greek symbols "psi" $\psi$, "phi" $\phi$, and a variant of phi: $\varphi$. To keep things consistent and clear over the course of the book, we establish the following convention for these state variables:
 
@@ -259,6 +302,12 @@ One of the trickiest problems in making numerical simulations of wave phenomena 
 There is a further question as to what overall shape the simulated universe is -- the two basic options are a cube and a sphere -- we typically use spheres for things like atomic systems, which are naturally spherical, so that preserves the radial symmetry of the system, whereas a cube is much better for the wrap-around case (doing wrap-around in a sphere is more difficult and not supported in [EmeWave](EmeWave "wikilink")).
 
 # Exploration of 3D Waves
+
+
+![fig11](figs/fig_wave_scaling.png)
+
+**Figure 11:** Scaling behavior of the discrete Laplacian wave equation -- the bottom row of images are from a simulation that is 4 times larger than the one on the top row, and the snapshots are spaced 4 times further apart -- it is difficult to tell the difference visually, although there is some roughness on the high-curvature edges of the lower resolution simulation compared to the milky smoothness of the higher-resolution one, the overall wave propagation is identical.  This also shows the inevitable spread of the wave packet, which quickly becomes distributed widely over space.  Due to the use of wrap-around edges, the wave ends up superposing upon itself many times over, producing what looks like interference patterns.
+
 
 Now we return to the [EmeWave](EmeWave "wikilink") simulator to see how the 3D waves behave, including the spreading behavior resulting from the Laplacian as described above. Follow the directions given in the [Waves](waves_sim.md) exploration, picking up where you left off, at the 3D Waves section. Running these simulations yourself is very strongly recommended -- you really get to see the dynamics unfolding over time, and gain considerable insight into the overall behavior of the waves. You can also see how incredibly smooth and symmetric (isomorphic in all directions) the 3D Laplacian approximation is -- there is no hint of any preferred directions or other kinds of numerical artifacts.
 
