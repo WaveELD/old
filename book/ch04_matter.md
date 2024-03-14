@@ -149,7 +149,7 @@ See [Special Relativity](#special_relativity) for a more detailed treatment, inc
 
 # Energy and Momentum Operators and the Hamiltonian
 
-Using what we have just reviewed about special relativity, plus the notion of \<b\>conservation of energy\</b\> -- i.e., that the \<b\>total energy\</b\> of the system is strictly conserved over time, we can actually derive the KG from first principles. In keeping with physicist's penchant for assigning people's names to concepts that would otherwise be very easy to understand if just spelled out, the total energy of the system is also called the *Hamiltonian*' ($H$), and standard Newtonian physics can all be derived from the appropriate Hamiltonian (which is what W. R. Hamilton did). This motif of using the total energy of the system to derive basic physical laws seems to work quite well in many cases, and is thus the primary way that such laws are derived for different definitions of the total energy. Essentially, the physical laws are latent in any given definition of total energy, and really just amount again to specifying the dynamics by which energy gets moved around in different ways, without ever gaining or losing any total energy.
+Using what we have just reviewed about special relativity, plus the notion of **conservation of energy** -- i.e., that the **total energy** of the system is strictly conserved over time, we can actually derive the KG from first principles. In keeping with physicist's penchant for assigning people's names to concepts that would otherwise be very easy to understand if just spelled out, the total energy of the system is also called the *Hamiltonian*' ($H$), and standard Newtonian physics can all be derived from the appropriate Hamiltonian (which is what W. R. Hamilton did). This motif of using the total energy of the system to derive basic physical laws seems to work quite well in many cases, and is thus the primary way that such laws are derived for different definitions of the total energy. Essentially, the physical laws are latent in any given definition of total energy, and really just amount again to specifying the dynamics by which energy gets moved around in different ways, without ever gaining or losing any total energy.
 
 After we derive the KG equations from a relativistic total energy Hamiltonian here, we will then derive the Schrödinger equation from a different Hamiltonian at the end of this chapter, and then we'll extend the Hamiltonian to include spin and coupling to the EM field in the next chapter where we derive the [Dirac equation](ch05_dirac.md) (which is just a more complicated version of the KG equation). You will see that the total energy equation and the corresponding wave equation are very directly related mathematically, and thus this overall approach of using the total energy to derive the wave equation is a very powerful tool that is important to understand if you want to really understand what these wave equations are doing.
 
@@ -164,7 +164,9 @@ As discussed in the [Special Relativity](#special_relativity) section, the relat
 
 The fact that these two components of energy, momentum and rest mass, add together only when squared, ended up causing a remarkable amount of grief and confusion about the meaning of the KG and Dirac equations, as we'll see later. Turns out that taking the square root of a sum is not a very friendly mathematical operation. We are able to largely avoid these problems in our overall approach, however, in part by just using the squared energy instead of the raw energy. If the energy is conserved, so is its square!
 
-To do anything with this total energy equation, we need to be able to compute the momentum and the energy values from our wave states. We have already indicated that the momentum (velocity) of the wave is proportional to the amount of curvature in the wave state -- more curve = faster velocity. This can be formalized with the appropriate constants in the following **momentum operator** (the little hat $\hat{\\}$ indicates that this is an operator to be applied to a wave state) which operates over each cell in the entire wave state to produce the associated momentum of the particle: \hat{p} = -i \hbar \vec{\nabla} $}}
+To do anything with this total energy equation, we need to be able to compute the momentum and the energy values from our wave states. We have already indicated that the momentum (velocity) of the wave is proportional to the amount of curvature in the wave state -- more curve = faster velocity. This can be formalized with the appropriate constants in the following **momentum operator** (the little hat $\hat{}$ indicates that this is an operator to be applied to a wave state) which operates over each cell in the entire wave state to produce the associated momentum of the particle:
+
+- $\hat{p} = -i \hbar \vec{\nabla} $
 
 We highlight this because we'll keep using it again and again as we work our way up to the Dirac equation. Do not be alarmed by the presence of the $-i$ *imaginary number* at the start of this equation -- we'll get rid of it soon enough. See [Complex_Numbers](#complex_numbers) for more information if you want to brush up on your knowledge of these seemingly strange numbers at this point -- you'll need to really understand them in detail to understand the Schrödinger equation later in this chapter. They really are very simple once you get past all the imaginary business and recognize their actual practical application.
 
@@ -446,15 +448,15 @@ Finally, we note that the warping of space and time that produces gravitational 
 
 This page shows all the mathematical steps needed to go from the relativistic relationship between momentum and velocity, to an expression for the velocity as a function of the wavelength $\lambda$, rest mass $m_0$, and the other standard constants (c, h). The $\gamma$ is the Lorentz factor used throughout [Special Relativity](#special_relativity).
 
-- $ p = \gamma m_0 v $ (starting equation)
-- $v = \frac{1}{\gamma m_0} p $ (flip to solve for v)
-- $v = \frac{\sqrt{1 - \frac{v^2}{c^2}}} {m_0} \frac{h}{\lambda} $ (substitute definition of p in terms of wavelength)
-- $v^2 = \frac{(1 - \frac{v^2}{c^2})h^2} {m_0^2 \lambda^2} $ (square everything)
-- $v^2 = \frac{h^2} {m_0^2 \lambda^2} - \frac{v^2 h^2} {c^2 m_0^2 \lambda^2} $ (separate terms)
-- $v^2 + \frac{v^2 h^2} {c^2 m_0^2 \lambda^2} = \frac{h^2} {m_0^2 \lambda^2} $ (consolidate v's on lhs)
-- $\frac{v^2 c^2 m_0^2 \lambda^2 + v^2 h^2} {c^2 m_0^2 \lambda^2} = \frac{h^2} {m_0^2 \lambda^2} $ (more consolidation)
-- $\frac{v^2 c^2 m_0^2 \lambda^2 + v^2 h^2} {c^2} = h^2 $ (eliminate redundant denominators)
-- $\frac{v^2 (c^2 m_0^2 \lambda^2 + h^2)} {c^2} = h^2 $ (pull out v term uniquely)
+- $p = \gamma m_0 v$ (starting equation)
+- $v = \frac{1}{\gamma m_0} p$ (flip to solve for v)
+- $v = \frac{\sqrt{1 - \frac{v^2}{c^2}}} {m_0} \frac{h}{\lambda}$ (substitute definition of p in terms of wavelength)
+- $v^2 = \frac{(1 - \frac{v^2}{c^2})h^2} {m_0^2 \lambda^2}$ (square everything)
+- $v^2 = \frac{h^2} {m_0^2 \lambda^2} - \frac{v^2 h^2} {c^2 m_0^2 \lambda^2}$ (separate terms)
+- $v^2 + \frac{v^2 h^2} {c^2 m_0^2 \lambda^2} = \frac{h^2} {m_0^2 \lambda^2}$ (consolidate v's on lhs)
+- $\frac{v^2 c^2 m_0^2 \lambda^2 + v^2 h^2} {c^2 m_0^2 \lambda^2} = \frac{h^2} {m_0^2 \lambda^2}$ (more consolidation)
+- $\frac{v^2 c^2 m_0^2 \lambda^2 + v^2 h^2} {c^2} = h^2$ (eliminate redundant denominators)
+- $\frac{v^2 (c^2 m_0^2 \lambda^2 + h^2)} {c^2} = h^2$ (pull out v term uniquely)
 - $v^2 = \frac{h^2 c^2}{c^2 m_0^2 \lambda^2 + h^2}$ (multiply by inverse of v factor to move to other side)
 - $v = \frac{h c}{\sqrt{c^2 m_0^2 \lambda^2 + h^2}}$ (final expression -- take square root)
 
