@@ -231,6 +231,7 @@ The justification for Bohr's restriction on atomic orbits came in 1924, when Lou
 The experimental confirmation of de Broglie's matter wave hypothesis came in 1927 in an experiment by Davisson and Germer, who found that electrons moving through a crystal exhibit a diffraction pattern -- such a pattern can only be produced by some kind of wave-like process, and calculations showed that the de Broglie wavelength predicted for the electrons fit the observed diffraction pattern quite well:
 
 $$ p = \frac{h}{\lambda} $$
+
 $$ \lambda = \frac{h}{p} $$
 
 where p is the momentum, h is Planck's constant, and $\lambda$ is the de Broglie wavelength. This is about .165 nanometers for the electrons in the Davisson-Germer experiment (very tiny, but enough to produce a measurable diffraction pattern through the crystal).
