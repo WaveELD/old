@@ -7,6 +7,10 @@ What should not get lost in all this discussion is the bare amazing fact that al
 
 # The Electrical Scalar Potential
 
+![fig1](figs/fig_gradient.png)
+
+**Figure 3.1:** The gradient, which is a vector consisting of the local slope along each of the different dimensions (two-dimensional case shown here).  The electric field $\vec{E}$ is the gradient of the electrical scalar potential field $A_0$.
+
 An important issue with the electrical scalar potential is that it is always just a relative quantity -- the potential is a measure of the voltage difference between two locations, and it varies depending on which two locations you happen to choose. Thus, people feel uncomfortable thinking of it as a physically real entity, because that would seem to imply that there is some kind of objective physical value for the potential at all locations in space, transforming it from a purely relative thing into something that must live in an absolute scale. But there doesn't seem to be any objective way to fix this scale, because all that we can measure are these relative values, and the corresponding electric field, neither of which determine what the absolute potential values should be. This situation is known as **gauge freedom**, and we'll see that it becomes an increasingly important concept as we proceed further. We'll see that it is actually not a problem in our simulation models, because the electric charges directly determine the resulting potential values. This is another example of an important discrepancy between a mathematical problem that really doesn't seem to correspond to an actual physical problem. The gauge freedom is more apparent than real in this case, all things considered.
 
 In the absence of any charges (i.e., in empty space), the electrical scalar potential (we use the $A_0$ symbol, to be consistent with the $\vec{A}$ vector potential) obeys the standard second-order wave equation:
@@ -84,6 +88,7 @@ Intuitively, curl indicates the extent to which the arrows in a local region are
 So, the $x$ (first) component of the curl is the crossed spatial gradient of the other two dimensions ($z$ by $y$ and $y$ by $z$), and likewise for the remaining factors. Intuitively, each component measures how much the field is spinning around that dimension.
 
 Here is how to compute the curl in the discrete space-time cellular-automaton framework: [Discrete Curl](#discrete_curl) -- it is very similar to the way that the discrete gradient is computed, just with additional subtraction terms.
+
 
 ## Exploration of the Magnetic Potential
 

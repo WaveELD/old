@@ -13,6 +13,14 @@ Some of these problems may be surmountable, but the level of complexity and mech
 
 # Klein-Gordon Waves
 
+![fig1](figs/fig_wave_packet_raw.png)
+
+**Figure 4.1:** A wave packet, which is a spatially localized wave disturbance that propagates through space as a coherent entity.  The two values shown here are the state value and the first derivative --- the relationship between these two determines which direction the wave travels. This is our model for a particle.  Mathematically, it can be constructed by multiplying a Gaussian function (normal bell-shaped distribution curve) times a sine wave.
+
+![fig2](figs/fig_kg_mass_drag.png)
+
+**Figure 4.2:** The additional mass term $-m_0^2 \varphi$ in the Klein-Gordon (KG) wave equation "drags down" the wave in proportion to the height of the waves (i.e., amplitude away from zero, either positive or negative).  This fights against the curvature of the wave, computed by $\nabla^2$.  Higher frequency waves have higher curvature, and thus move faster than lower frequency waves.
+
 In beginning to explore the wave model of matter, we need to first establish a few basic concepts of what it would even mean for a particle to be described by a wave. The main idea is that a particle corresponds to a {\em wave packet}, which is a spatially localized wave disturbance . It can act like a particle in that it is somewhat spatially localized, and moves as a coherent entity. If you zoomed out very far, and blurred your eyes, you could imagine that a wave packet would look like a tiny point particle. Nevertheless, it fundamentally acts like a wave, in the sense that it is actually made of oscillations, and obeys a wave equation. As to what exactly the wave material is and what it means for observations, we'll postpone for later. At this point, we'll content ourselves with this level of description, and just start developing some new twists on the basic wave equation; we'll return to the thorny interpretational issues (e.g., wave-particle duality, probabilistic interpretation of the wave, etc), once we have a better sense of how these new waves behave.
 
 Recall that the wave equation can be written as a second-order differential equation:
@@ -57,7 +65,12 @@ To actually implement this KG equation in our cellular automaton model, we make 
 
 ## Variable Speeds: Momentum from Frequency
 
-One of the most important features of this KG equation is that waves now travel at *variable speeds*, instead of always moving at exactly the same speed (the speed of light). This speed now depends on the relationship between the curvature ($\nabla^2 \varphi$) and the squared-mass value $\frac{m_0^2}{\hbar^2} \varphi$. In essence, the mass "drags down" the wave propagation force conveyed by the local curvature, $\nabla^2 \varphi$. Therefore, to get the wave to move faster, you need more curvature, which is to say, a higher frequency wave, because higher frequency waves have more waves per unit length, and this means overall greater "curvature" ().
+![fig3](figs/fig_kg_freq_speed.png)
+
+**Figure 4.3** Relationship between frequency and speed in the Klein-Gordon (KG) wave function, which derives from competition between mass drag and overall curvature of the wave, as computed by $\nabla^2$.  Higher frequency waves have more curvature and thus move faster.
+
+
+One of the most important features of this KG equation is that waves now travel at *variable speeds*, instead of always moving at exactly the same speed (the speed of light). This speed now depends on the relationship between the curvature ($\nabla^2 \varphi$) and the squared-mass value $\frac{m_0^2}{\hbar^2} \varphi$. In essence, the mass "drags down" the wave propagation force conveyed by the local curvature, $\nabla^2 \varphi$. Therefore, to get the wave to move faster, you need more curvature, which is to say, a higher frequency wave, because higher frequency waves have more waves per unit length, and this means overall greater "curvature" (Figure 4.3).
 
 This relationship between frequency $f$ of a wave and the momentum (velocity \* mass) of the particle that it describes is captured in one of the most basic equations of quantum physics:
 
@@ -128,6 +141,15 @@ Now we explore the above properties of the Klein-Gordon wave equation, to get a 
 Creating a moving wave packet that moves with a given velocity is a bit more complicated than for the simple wave equation, because we have more constraints to take into account.
 
 # Special Relativity
+
+![fig4](figs/fig_wave_contract.png)
+
+**Figure 4.4:** Intuitive explanation of Lorentz contraction of space that occurs as something moves faster, in terms of the relationship between wave frequency and speed in the Klein-Gordon wave equation. Because faster movement is associated with higher frequency and shorter wavelength, the system contracts in the direction of motion as it speeds up.  Thus, any measurements made in the faster system will have their basic constituents, including yard sticks and everything else, shrunk in this way.  This is one of the main effects of special relativity.
+
+![fig5](figs/fig_lorentz_xform.png)
+
+**Figure 4.5:** The Lorentz Transformation, a central property of special relativity, which causes length in the direction of motion to shrink and time to expand (dilate) as a function of relative speed, in just such a way as to preserve the observed speed of light regardless of how fast one is going.  The matter wave equation exhibits exactly this behavior, which completely masks any fixed matrix in which such waves might be implemented.  In this example, a speeding light ray is observed at a given time t by an observer in a train speeding along at 86.6% of the speed of light $(c \approx 3.0x10^8)$, and by "us" sitting in a stopped train (on a siding presumably).  All the measurements in black are what we observe in this stopped reference frame, while those in red are what the speeding train guy observes.  If we wait 100 nanoseconds (ns) ($1x10^{-7}$ seconds -- 100 times slower than the clock rate on a 1Ghz computer chip), then this light ray will have moved 30 meters.  However, from our stopped perspective, the speeding train will be partially keeping up with the light ray, so that it will appear to have traveled only 4m relative to the moving train.  Thus, in this stopped reference frame, where 100ns have passed for this light to appear to have traveled 4m, we might naively assume that someone on the speeding train would measure the speed of light as only $4x10^{7} m/s$ -- oops!  But the Lorentz transformations of length and time exactly compensate.  The length of the train in the direction of motion shrinks in half, so that people on the train measure the 4m in the stopped reference frame as 8m in the moving reference frame -- twice as long.  Furthermore, time moves more slowly for the speeding train, such that the 100ns in our reference frame is measured as only 50ns in the speeding train reference frame (at a static reference point in the speeding train, which is the very back of the coal tender in this example).  The measurement of time is very strange in special relativity, because what is observed as occurring at the same time (simultaneity) across different reference frames depends on both time ''and location''.  Thus, when the light ray is measured at 8m ahead of the back of the coal tender, this registers as only 26.8ns of elapsed time!  If you divide this 8m by that amount of time, it comes out to exactly the same speed of light as in the stopped frame.  The time transformation equation is: $t' = \gamma (t-vx/c^2)$ and the position transformation is: $x' = \gamma (x-vt)$, where t' and x' are as measured on the speeding train and t, x are on the stopped one, and $\gamma = 1/\sqrt{1-v^2/c^2}$.
+
 
 As we noted before, the wave equation automatically satisfies special relativity. This is still true of the KG equation, which is why it is known as the relativistic version of Schrödinger's equation. Indeed, because the KG equation describes a massive particle, it opens up the much more interesting set of issues with special relativity having to do with time and space contracting and expanding.
 
@@ -307,7 +329,7 @@ When you actually implement Schrödinger's equation on a computer using the upda
 
 The basic phenomenology of Schrödinger's equation is that wave packets propagate through space, with a speed that is proportional to $\nabla^2 \phi$, which in turn is proportional to the frequency of the wave. In other words, it describes exactly the same behavior as the KG equation, where particle speed is proportional to frequency.
 
-One critical property of Schrödinger's equation (which our current scalar KG equation does not have) is that it preserves the overall magnitude of the $\phi$ state values across all of space, for all time. This is to say, if you compute the sum of $\phi \phi^\*$ for each point in space, this sum will remain the same across time under the Schrödinger equation. This conserved value is interpreted as a probability in standard quantum mechanics. For example, we can initialize the state with a localized wave packet (Figure~\ref{fig.wave_packet}) to represent the initial probability for the location and velocity of a particle (velocity being a function of the frequency of the wave packet). If we then apply the Schrödinger equation repeatedly, we can interpret the resulting $\phi \phi^\*$ values as the probability of the particle having moved to the corresponding location.
+One critical property of Schrödinger's equation (which our current scalar KG equation does not have) is that it preserves the overall magnitude of the $\phi$ state values across all of space, for all time. This is to say, if you compute the sum of $\phi \phi^\*$ for each point in space, this sum will remain the same across time under the Schrödinger equation. This conserved value is interpreted as a probability in standard quantum mechanics. For example, we can initialize the state with a localized wave packet (Figure 4.1) to represent the initial probability for the location and velocity of a particle (velocity being a function of the frequency of the wave packet). If we then apply the Schrödinger equation repeatedly, we can interpret the resulting $\phi \phi^\*$ values as the probability of the particle having moved to the corresponding location.
 
 In other words, the wave packet defines a kind of "cloud of probability" for finding a discrete particle within its midst. However, these probabilities have different meanings in different scenarios, and it is notoriously difficult to come up with a intuitively sensible interpretation of what these probability clouds mean. We return to these issues later.
 
