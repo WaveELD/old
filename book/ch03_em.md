@@ -75,11 +75,11 @@ The computation of the vector potential terms $\vec{A}$ similarly just follow th
 
 and similar equations hold for the $y$ and $z$ components.
 
-As with the electric potential field, we can capture all of the known physics of the magnetic field propagation and how it is driven from the motion of charge (i.e., current) over time, using the above wave equation. Thus, we imagine that this vector potential is all that exists physically. In addition, as with the electric field, the force exerted by the magnetic field must be computed from this potential. This is where things get a little bit more complicated, because this relationship is not a simple gradient, but rather the **curl** ($\vec{\nabla} \times$) of the magnetic vector potential : \vec{B} {{=}} \vec{\nabla} \times \vec{A} $}}
+As with the electric potential field, we can capture all of the known physics of the magnetic field propagation and how it is driven from the motion of charge (i.e., current) over time, using the above wave equation. Thus, we imagine that this vector potential is all that exists physically. In addition, as with the electric field, the force exerted by the magnetic field must be computed from this potential. This is where things get a little bit more complicated, because this relationship is not a simple gradient, but rather the **curl** ($\vec{\nabla} \times$) of the magnetic vector potential: $\vec{B} {{=}} \vec{\nabla} \times \vec{A} $
 
 Intuitively, curl indicates the extent to which the arrows in a local region are spinning around. Formally, curl is defined as:
 
-- **curl:** $\vec{\nabla} \times \vec{B} \equiv \left( \left\[\frac{\partial {B_z}}{\partial {y}} - \frac{\partial {B_y}}{\partial {z}} $\right], \left[\frac{\partial {B_x}}{\partial {z}} - \frac{\partial {B_z}}{\partial {x}} \right], \left[\frac{\partial {B_y}}{\partial {x}} - \frac{\partial {B_x}}{\partial {y}} \right] \right)$
+- **curl:** $\vec{\nabla} \times \vec{B} \equiv \left( \left\[\frac{\partial {B_z}}{\partial {y}} - \frac{\partial {B_y}}{\partial {z}} \right], \left[\frac{\partial {B_x}}{\partial {z}} - \frac{\partial {B_z}}{\partial {x}} \right], \left[\frac{\partial {B_y}}{\partial {x}} - \frac{\partial {B_x}}{\partial {y}} \right] \right)$
 
 So, the $x$ (first) component of the curl is the crossed spatial gradient of the other two dimensions ($z$ by $y$ and $y$ by $z$), and likewise for the remaining factors. Intuitively, each component measures how much the field is spinning around that dimension.
 
@@ -174,7 +174,7 @@ This captures the essential reason for the covariant form: if time and space are
 
 So what does any of this have to do with the wave equation? We're just two short steps away from that. First, we need the definition of multiplying two four-vectors:
 
-- $a \cdot b \equiv {a}^\mu {b}\_\mu = {a}\_\mu {b}^\mu \equiv a^0 b_0 + a^1 b_1 + a^2 b_2 + a^3 b_3 = a^t b^t - a^x b^x - a^y b^y - a^z b^z = \sum\_{\mu = 0}^3 {a}\_\mu {b}^\mu $
+- $a \cdot b \equiv {a}^\mu {b}\_\mu = {a}\_\mu {b}^\mu \equiv a^0 b_0 + a^1 b_1 + a^2 b_2 + a^3 b_3 = a^t b^t - a^x b^x - a^y b^y - a^z b^z = \sum_{\mu = 0}^3 {a}\_\mu {b}^\mu $
 
 We'll see some interesting properties of this multiplication rule later, but the main thing to notice is that it produces a time = space covariant result.
 
