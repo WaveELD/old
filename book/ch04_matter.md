@@ -1,6 +1,7 @@
+
 Historically, matter has typically been conceived of as something hard and solid: a particle of some form or another. Here, we see that we can produce many of the known properties of matter using a very simple extension of the simple second-order wave equation that we've explored in the prior chapters. The simplicity and elegance of this matter wave in explaining a very wide range of physical phenomena, including Newtonian and relativistic equations of motion, the Lorentz transformations of special relativity, and the quantum mechanical relationship between wave frequency and velocity (momentum), provides a compelling overall framework for thinking of matter in terms of waves. This then provides the core idea behind the WELD framework.
 
-In this chapter, we take the first fundamental step in developing a matter wave equation, which results in the **Klein-Gordon** equation, that operates on a scalar wave field just like the simple second-order wave equation. Although this basic equation contains so many fundamental properties, it also has some important limitations in terms of capturing the full range of behavior of a "particle" such as an electron. First, it does not produce a **conserved charge density** value over time -- charge will not remain strictly constant over time under this equation. Second, it fails to capture the important property of **spin**, which we will see plays an important role in the behavior of an electron. These limitations can be addressed in a couple of extensions to the Klein-Gordon equation, which result in the **Dirac equation**, as developed in the [next chapter](WELDBook/Dirac "wikilink").
+In this chapter, we take the first fundamental step in developing a matter wave equation, which results in the **Klein-Gordon** equation, that operates on a scalar wave field just like the simple second-order wave equation. Although this basic equation contains so many fundamental properties, it also has some important limitations in terms of capturing the full range of behavior of a "particle" such as an electron. First, it does not produce a **conserved charge density** value over time -- charge will not remain strictly constant over time under this equation. Second, it fails to capture the important property of **spin**, which we will see plays an important role in the behavior of an electron. These limitations can be addressed in a couple of extensions to the Klein-Gordon equation, which result in the **Dirac equation**, as developed in the [next chapter](ch05_dirac.md).
 
 # Problems with Particles
 
@@ -24,7 +25,7 @@ What if we add a single new term to this equation, where we subtract away some *
 
 - $ \frac{\partial^2 {\varphi}}{\partial t^2} = c^2 \left( \nabla^2 \varphi - \frac{m_0^2}{\hbar^2} \varphi \right) $
 
-or, in somewhat simpler notation that we'll use more frequently: \frac{\partial^2 {\varphi}}{\partial t^2} {{=}} c^2 \left(\nabla^2 - \frac{m_0^2}{\hbar^2} \right) \varphi $}} where "hbar" $\hbar = \frac{h}{2\pi}$ and $h$ is Planck's constant. As we elaborate below, the most natural interpretation of Planck's constant here is as a simple scaling term on the impact of mass on the matter wave dynamics -- for this reason, we strongly argue that anything having to do with this constant reflects an interaction with matter waves, and for example it makes no sense to use *h* in characterizing the behavior of light waves, because they have no mass and as we saw in the previous chapter, there is no evidence of any such constant in the fundamental EM wave equations. Thus, as we discussed in the [Introduction](WELDBook/Intro "wikilink"), Einstein's creation of the photon with energy $E = h \nu$ is really just a calculational tool for representing the interaction between EM waves and matter in atomic systems, and it is the matter waves that impart the *h* constant, not the EM "photon".
+or, in somewhat simpler notation that we'll use more frequently: \frac{\partial^2 {\varphi}}{\partial t^2} {{=}} c^2 \left(\nabla^2 - \frac{m_0^2}{\hbar^2} \right) \varphi $}} where "hbar" $\hbar = \frac{h}{2\pi}$ and $h$ is Planck's constant. As we elaborate below, the most natural interpretation of Planck's constant here is as a simple scaling term on the impact of mass on the matter wave dynamics -- for this reason, we strongly argue that anything having to do with this constant reflects an interaction with matter waves, and for example it makes no sense to use *h* in characterizing the behavior of light waves, because they have no mass and as we saw in the previous chapter, there is no evidence of any such constant in the fundamental EM wave equations. Thus, as we discussed in the [Introduction](ch01_intro.md), Einstein's creation of the photon with energy $E = h \nu$ is really just a calculational tool for representing the interaction between EM waves and matter in atomic systems, and it is the matter waves that impart the *h* constant, not the EM "photon".
 
 As noted, this new equation is called the **Klein-Gordon (KG)** equation, named after Oskar Klein and Walter Gordon, who published the first papers on it (Klein, 1926; Gordon, 1927; see Kragh, 1984 for a detailed history of this equation, which was actually discovered by many individuals, including Schrödinger). This equation captures a surprising number of important phenomena, as we detail next.
 
@@ -155,9 +156,9 @@ See [Special Relativity](WELDBook/Special_Relativity "wikilink") for a more deta
 
 Using what we have just reviewed about special relativity, plus the notion of \<b\>conservation of energy\</b\> -- i.e., that the \<b\>total energy\</b\> of the system is strictly conserved over time, we can actually derive the KG from first principles. In keeping with physicist's penchant for assigning people's names to concepts that would otherwise be very easy to understand if just spelled out, the total energy of the system is also called the *Hamiltonian*' ($H$), and standard Newtonian physics can all be derived from the appropriate Hamiltonian (which is what W. R. Hamilton did). This motif of using the total energy of the system to derive basic physical laws seems to work quite well in many cases, and is thus the primary way that such laws are derived for different definitions of the total energy. Essentially, the physical laws are latent in any given definition of total energy, and really just amount again to specifying the dynamics by which energy gets moved around in different ways, without ever gaining or losing any total energy.
 
-After we derive the KG equations from a relativistic total energy Hamiltonian here, we will then derive the Schrödinger equation from a different Hamiltonian at the end of this chapter, and then we'll extend the Hamiltonian to include spin and coupling to the EM field in the next chapter where we derive the [Dirac equation](WELDBook/Dirac "wikilink") (which is just a more complicated version of the KG equation). You will see that the total energy equation and the corresponding wave equation are very directly related mathematically, and thus this overall approach of using the total energy to derive the wave equation is a very powerful tool that is important to understand if you want to really understand what these wave equations are doing.
+After we derive the KG equations from a relativistic total energy Hamiltonian here, we will then derive the Schrödinger equation from a different Hamiltonian at the end of this chapter, and then we'll extend the Hamiltonian to include spin and coupling to the EM field in the next chapter where we derive the [Dirac equation](ch05_dirac.md) (which is just a more complicated version of the KG equation). You will see that the total energy equation and the corresponding wave equation are very directly related mathematically, and thus this overall approach of using the total energy to derive the wave equation is a very powerful tool that is important to understand if you want to really understand what these wave equations are doing.
 
-You should be familiar with our computation of the total energy associated with a simple wave, which we calculated in the [Waves Chapter](WELDBook/Waves "wikilink"). There we saw that for each cell element in our wave matrix, the total energy was the sum of the **kinetic** and **potential** energy, where kinetic energy is a function of how fast the state value is moving, and potential energy is a function of how much stress or tension there was between the state and its neighbors (i.e., the curvature of the space).
+You should be familiar with our computation of the total energy associated with a simple wave, which we calculated in the [Waves Chapter](ch02_waves.md). There we saw that for each cell element in our wave matrix, the total energy was the sum of the **kinetic** and **potential** energy, where kinetic energy is a function of how fast the state value is moving, and potential energy is a function of how much stress or tension there was between the state and its neighbors (i.e., the curvature of the space).
 
 Now, we're going to try to formulate the total energy associated with *the "particle" represented by the entire wave function*, instead of thinking in terms of each individual cell within the wave state. We'll see that we can compute the resulting total particle energy using local cell-level calculations, but the motivations and logic are different. There are still kinetic and potential contributions to this overall particle energy, but it is the overall velocity (actually momentum, which is just velocity times mass) of the particle, not the individual cell state, that we are concerned with in computing the kinetic energy.
 
@@ -263,7 +264,7 @@ Using the total energy (Hamiltonian) approach, we can derive Schrödinger's equa
 
 (where $\vec{\nabla} = \left(\frac{\partial {}}{\partial {x}}, \frac{\partial {}}{\partial {y}}, \frac{\partial}{\partial {z}}\right)$ is the gradient operator).
 
-Next, we need to define the total energy Hamiltonian. Instead of the relativistic total energy, we use the classical Newtonian expression for the kinetic energy of a particle, in terms of its velocity $\vec{v}$, just as we did in the simple wave energy calculation in the [Waves Chapter](WELDBook/Waves "wikilink"):
+Next, we need to define the total energy Hamiltonian. Instead of the relativistic total energy, we use the classical Newtonian expression for the kinetic energy of a particle, in terms of its velocity $\vec{v}$, just as we did in the simple wave energy calculation in the [Waves Chapter](ch02_waves.md):
 
 - $ K = \frac{1}{2} m_0 \vec{v}^2 = \frac{1}{2 m_0} \vec{p}^2$
 
@@ -351,11 +352,208 @@ Another important milestone that we've reached here is the contemplation of what
 
 Overall, it is interesting to compare our strong enthusiasm for the KG equation with its almost total neglect in the physics literature, which instead has been dominated by Schrödinger's equation and the Dirac equation that we'll encounter later. We like the KG equation because it is extremely simple and elegant from the perspective of our cellular automaton model, and its second-order nature both emerges naturally out of this framework, and solves a number of important problems (e.g., symmetric propagation in all directions, which does not occur in a first-order wave equation in the CA framework). In contrast, the rest of physics likes Schrödinger's equation because it is more analytically tractable as a first-order equation. It is linear, and it also automatically produces a positive-valued conserved probability density, which fits perfectly with the standard probabilistic interpretation of quantum physics. The fact that it violates special relativity is often overlooked, and anyway the Dirac equation solves that problem, while staying within a first-order framework (but at the cost of introducing 8 state variables interacting in a fairly complex way). Thus, the overall difference is one of "mechanism" vs. "analysis," where standard physics is strongly weighted toward analysis. Nevertheless, we'll see that with appropriate further developments, a version of the KG equation can provide a correct explanation of all the phenomena covered by the Dirac equation.
 
-# Sub Topics
-
-- [Special Relativity](WELDBook/Special_Relativity "wikilink") -- detailed mathematical treatment of special relativity.
-- [Complex Numbers](WELDBook/Complex_Numbers "wikilink") -- de-mystification of complex numbers -- quite simple actually..
-
 # External Resources
 
 - <http://physics-quest.org/> -- Hans de Vries book on Relativistic Quantum Field Theory -- lots of nice further depth on KG equation etc.</text>
+
+# Sub Topics
+
+## Special Relativity
+
+(c \approx 3.0x10^8)$, and by "us" sitting in a stopped train (on a siding presumably). All the measurements in black are what we observe in this stopped reference frame, while those in red are what the speeding train guy observes. If we wait 100 nanoseconds (ns) ($1x10^{-7}$ seconds -- 100 times slower than the clock rate on a 1Ghz computer chip), then this light ray will have moved 30 meters. However, from our stopped perspective, the speeding train will be partially keeping up with the light ray, so that it will appear to have traveled only 4m relative to the moving train. Thus, in this stopped reference frame, where 100ns have passed for this light to appear to have traveled 4m, we might naively assume that someone on the speeding train would measure the speed of light as only $4x10^{7} m/s$ -- oops! But the Lorentz transformations of length and time exactly compensate. The length of the train in the direction of motion shrinks in half, so that people on the train measure the 4m in the stopped reference frame as 8m in the moving reference frame -- twice as long. Furthermore, time moves more slowly for the speeding train, such that the 100ns in our reference frame is measured as only 50ns in the speeding train reference frame (at a static reference point in the speeding train, which is the very back of the coal tender in this example). The measurement of time is very strange in special relativity, because what is observed as occurring at the same time (simultaneity) across different reference frames depends on both time *and location*. Thus, when the light ray is measured at 8m ahead of the back of the coal tender, this registers as only 26.8ns of elapsed time! If you divide this 8m by that amount of time, it comes out to exactly the same speed of light as in the stopped frame. The time transformation equation is: $t' = \gamma (t-vx/c^2)$ and the position transformation is: $x' = \gamma (x-vt)$, where t' and x' are as measured on the speeding train and t, x are on the stopped one, and $\gamma = 1/\sqrt{1-v^2/c^2}$.}}
+
+v$ relative to F. Both frames contain a rigid rod, which when F' was at rest relative to F were the same length $l$, as indicated by the ruler marks. These rods now appear to be of different lengths in the two frames --- from the perspective of F, the rod in F' appears to have shrunk to a shorter length $l'$. Interestingly, from the perspective of an observer moving along with the F' reference frame, its rod appears to be of length $l$ (same as when it was stationary), and the other rod in F appears to have shrunk.}}
+
+v$ is determined by the Lorentz factor $\gamma$, which is plotted here (in natural units where the speed of light $c = 1$). Not much happens until you get very close to the speed of light (e.g., above 90% or .9). }}
+
+0,x{{=}}0) with F) moving to the left at $v {{=}} -.866$ (Lorentz factor $\gamma {{=}} 2$), several interesting features of the Lorentz transformation are evident. If we follow the marble that was originally located at (0,x) as it sits in frame F for 3 time steps, we see that it appears to move to the right in frame F', in the opposite direction of F' motion. Furthermore, because of the Lorentz factor, the 3 seconds in frame F amount to 6 seconds in F', and the distance it should travel due to the relative motion, computed in frame F ($-vt {{=}} .866 \times 3 {{=}} 2.598$) corresponds to 5.196 in frame F'. The second marble reveals a critical and somewhat counter-intuitive effect, where two events that are {\em simultaneous} in frame F (i.e., t{{=}}0 for both of these), occur at *different times* in frame F'. Specifically the second marble sitting at rest at x{{=}}2 at t{{=}}0 is not "encountered" by the moving frame F' until 3.464 time seconds later (in F' time units), due to it being offset in space from the first marble. It takes the frame F' $(-vx {{=}} .866 \* 2 {{=}} 1.732$) time units to get to this second point (in the units of the F frame), and when this gets subject to the time dilation effect, you end up with the 3.464. From this starting point for the second marble, the same time and space increments as for the first marble occur for the subsequent point 3 time units later.}}
+
+This subtopic provides a thorough treatment of **special relativity**, including the math needed to transform between different reference frames. We never actually have to use this in our numerical simulations, because all of our wave equations are automatically consistent with special relativity (i.e., they are **manifestly covariant**). But it is important to understand how all this works in any case.
+
+The mathematics of special relativity involves the computation of relative distance and time measurements in different reference frames that are moving relative to each other (). As and illustrates a rigid rod of the same length $l$ can appear shortened if it is moving along at a high velocity $v$ relative to a static reference frame F (i.e., not moving relative to this page of paper). We denote the moving rod's reference frame F'.
+
+The factor for transforming between reference frames is the **Lorentz factor** gamma:
+
+- **Lorentz factor:** $ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} $
+
+The shape of this function is shown in . Because the velocity enters into this function as a squared term, the function has a parabolic shape, such that not much happens until the velocity gets very close to the speed of light.
+
+For the situation illustrated in , the moving rod in frame F' appears shortened in the static frame F by a factor of $\frac{1}{\gamma}$:
+
+- $ l' = \frac{l}{\gamma} $
+
+Similarly, the duration of a given fixed interval $t$ (e.g., a second) in the moving reference frame F' appears longer from the perspective of F by the same factor:
+
+- $ t' = \gamma t $
+
+It is important to keep in mind that in these equations, the $l'$ and $t'$ refer to what something in the moving F' reference frame looks like to someone in the static frame, F, relative to these same quantities as measured in the static frame ($l$ and $t$). But this assumes that we have previously established in a common reference frame that the rod in F' actually has the same length as the one in F (and the second similarly has the same duration).
+
+An alternative (and more conventional, but sometimes more confusing) way of using the prime notation is to directly convert between coordinate systems of the two reference frames, where the primed and unprimed cases both refer to *the exact same event* from the two different perspectives. In this case $l'$ would refer to how an observer {\em in F'} would measure the rod length, whereas $l$ refers to what someone in F would measure *for the very same rod that is moving in F'*, not for the "standard length" of the rod when both reference frames where static. In this case, things are exactly flipped, and we would say that $l'$ is the original rod length (say 1 meter), because it is in the F' reference frame that the rod is not moving, whereas in the F reference frame, the rod has shrunk to a shorter apparent length $l$ (say .5 meters, if $v=.866$). Similarly, the second measured in F' ($t'$) corresponds to a longer time interval $t$ in F (e.g., 2 seconds). It is definitely complicated to keep track of all this moving back and forth between reference frames!
+
+In this way of doing things, in frame F, we designate an event as occurring at space-time location $(t,x,y,z)$ (this is a **four-vector** or **space-time coordinate** in Minkowski space, which we introduced at the end of the [EM Chapter](ch03_em.md). In frame F', this same event has coordinates $(t',x',y',z')$, where the two coordinate systems are aligned such that the origin (0,0,0,0) is the same in both. As before, we specify that the relative velocity $v$ between the two frames is entirely along the $x$ axis, for simplicity. We can compute these F' coordinates directly from our F coordinates, using Lorentz transformations (again in natural units where $c=1$, and $v$ goes between 0 and 1):
+
+- $ t' = \gamma (t - vx) $
+- $ x' = \gamma (x - vt) $
+- $ y' = y $
+- $ z' = z $
+
+shows where these formulas come from, and demonstrates their concrete application. The $-vx$ term in the transformation of time, and the $-vt$ term in the transformation of the $x$ coordinate, are critical and possibly counter-intuitive factors in these equations. As the figure explains, the $-vt$ is more sensible, as it simply reflects the relative motion of the reference frame over time. The $-vx$ term is somewhat less intuitive, but it reflects the fact that two events separated by some spatial distance will not be experienced as simultaneous in a moving reference frame! Instead, the spatial separation turns into a temporal separation due to the relative motion of the frame.
+
+One can use these equations to compute the transformed velocity of an object moving at velocity $w$ along the x axis in frame F as it would appear to an observer in frame F'. We can compute this by taking velocity as distance over time, and noting that in time $t$ in frame F, the object will travel a distance $x = wt$. Thus, we need to compute the transformed velocity as distance over time in the F' frame, as:
+
+- $ w' = \frac{x'}{t'} $
+
+  
+$ = \frac{\gamma (x - v t)}{\gamma (t - v x)} $
+
+$ = \frac{\gamma (wt - v t)}{\gamma (t - v w t)} $
+
+$ = \frac{\gamma t (w - v)}{\gamma t (1 - v w)} $
+
+$ = \frac{w - v}{1 - wv} $
+
+(the intermediate steps are included to make everything as clear as possible, tracking the substitution of $x$ with $wt$).
+
+Interestingly, if both velocities $w$ and $v$ are small (relative to the speed of light, $c=1$), then the denominator is close to 1, and you get the more intuitive result that the relative velocities just add (or subtract, as the case may be). This is known as the **Galilean transformation**, which holds for non-relativistic speeds, and is intuitive to most people. However, as either of these speeds increase, the denominator starts to get smaller, and the relative velocities do not add linearly. Here are several illustrative examples of how this equation works:
+
+|          |         |           |                         |
+|----------|---------|-----------|-------------------------|
+| w = 0    | w' = -v |           | only relative motion    |
+| w = v    | w' = 0  |           | same speed              |
+| w = .2   | v = .1  | w' = .102 | slightly faster than .1 |
+| w = -.1  | v = .1  | w' = .199 | slightly slower than .2 |
+| w = .9   | v = .1  | w' = .87  | much faster than .8     |
+| w = -.9  | v = .1  | w' = .99  | much slower than 1.1    |
+| w = 1.0  | v = .1  | w' = 1.0  | speed of light is same  |
+| w = -1.0 | v = .1  | w' = 1.0  | speed of light is same  |
+
+One other important point to be made about special relativity is that there is an invariant calculation that can be made on the coordinates measured in any given reference frame, which will yield the same result as in any other reference frame. This is a kind of distance metric between two points $(t_1, x_1, y_1, z_1)$ and $(t_2, x_2, y_2, z_2)$ (both of which must be measured in the same reference frame):
+
+- $ ds^2 = (t_1 - t_2)^2 - (x_1 - x_2)^2 - (y_1 - y_2)^2 - (z_1 - z_2)^2 $
+
+You can try this out on the coordinates in for the same points in the different reference frames: you'll get the same results for either (with small differences due to round-off errors). Interestingly, when you try it for the second case with the photons moving at the speed of light, you see that this value is always 0. Thus, in effect, the distance in space is equal to the distance in time. If we just have motion in one spatial dimension (e.g., $x$), this is clear:
+
+- $ (t_1 - t_2)^2 - (x_1 - x_2)^2 = 0 $
+
+  
+$ (t_1 - t_2)^2 = (x_1 - x_2)^2 $
+
+This is exactly the same time = space relationship that we discussed earlier for the basic wave equation. Perhaps now the fundamental importance of this for relativity is clearer.
+
+This distance metric also tells you in what way two events are separated. If the distance metric is positive, then the two points are separated by time, and if it is negative, they are separated by space.
+
+Interestingly, the Lorentz transformations can be derived directly from this distance metric, and this distance metric can in turn be derived from the principle that the speed of light is a constant in any reference frame. Therefore, all of these effects are really just different manifestations of the same basic set of constraints, which are captured directly and automatically in the wave equations.
+
+One additional property of special relativity has to do with the relationship between energy and momentum. If an object is at rest, its only energy is that associated with its rest mass, according to the famous equation:
+
+- $ E_0 = m_0 c^2 $
+
+As the object moves faster, it gains energy in proportion to the Lorentz factor $\gamma$:
+
+- $ E = \gamma m_0 c^2 $
+
+Furthermore, the relativistic momentum of this object is just the Lorentz factor times the standard Newtonian definition of momentum for motion at velocity $\vec{v}$:
+
+- $ \vec{p} = \gamma m_0 \vec{v} $
+
+These two variables can be related in the relativistic energy-momentum equation:
+
+- $ E^2 = \vec{p}^2 c^2 + (m_0 c^2)^2 $
+
+  
+$ E = \sqrt{\vec{p}^2 c^2 + (m_0 c^2)^2} $
+
+which is different way of expressing the energy of the system. It is very sensible, in that the two main contributors to energy are the momentum (i.e., kinetic energy) and the rest energy. If you set $c=1$, it is even simpler:
+
+- $ E^2 = \vec{p}^2+ m_0^2 $
+- $ E = \sqrt{\vec{p}^2+ m_0^2} $
+
+You can think of the rest energy and momentum as two legs of a right triangle, such that the total energy is the hypotenuse, according to the pythagorean theorem.
+
+In the limit of a slow velocity (relative to the speed of light), this expression approaches the Newtonian expression for kinetic energy (plus the rest mass energy):
+
+- $ E \approx \frac{1}{2}m_0 \vec{v}^2 + m_0 c^2 $
+
+Interestingly, the Klein-Gordon equation in the [Matter Chapter](ch04_matter.md) can be derived directly from this equation!
+
+Finally, we note that the warping of space and time that produces gravitational effects according to general relativity enters into our model in a very different way, as described later. Thus, in our model, special and general relativity result from two very different mechanisms.
+
+
+## Relativistic Momentum and Velocity
+
+This page shows all the mathematical steps needed to go from the relativistic relationship between momentum and velocity, to an expression for the velocity as a function of the wavelength $\lambda$, rest mass $m_0$, and the other standard constants (c, h). The $\gamma$ is the Lorentz factor used throughout [Special Relativity](#special_relativity).
+
+- $ p = \gamma m_0 v $ (starting equation)
+  
+$ v = \frac{1}{\gamma m_0} p $ (flip to solve for v)
+
+$ v = \frac{\sqrt{1 - \frac{v^2}{c^2}}} {m_0} \frac{h}{\lambda} $ (substitute definition of p in terms of wavelength)
+
+$ v^2 = \frac{(1 - \frac{v^2}{c^2})h^2} {m_0^2 \lambda^2} $ (square everything)
+
+$ v^2 = \frac{h^2} {m_0^2 \lambda^2} - \frac{v^2 h^2} {c^2 m_0^2 \lambda^2} $ (separate terms)
+
+$ v^2 + \frac{v^2 h^2} {c^2 m_0^2 \lambda^2} = \frac{h^2} {m_0^2 \lambda^2} $ (consolidate v's on lhs)
+
+$ \frac{v^2 c^2 m_0^2 \lambda^2 + v^2 h^2} {c^2 m_0^2 \lambda^2} = \frac{h^2} {m_0^2 \lambda^2} $ (more consolidation)
+
+$ \frac{v^2 c^2 m_0^2 \lambda^2 + v^2 h^2} {c^2} = h^2 $ (eliminate redundant denominators)
+
+$ \frac{v^2 (c^2 m_0^2 \lambda^2 + h^2)} {c^2} = h^2 $ (pull out v term uniquely)
+
+$ v^2 = \frac{h^2 c^2}{c^2 m_0^2 \lambda^2 + h^2}$ (multiply by inverse of v factor to move to other side)
+
+$ v = \frac{h c}{\sqrt{c^2 m_0^2 \lambda^2 + h^2}}$ (final expression -- take square root)
+
+## Complex Numbers
+
+$i$, where $i^2 = -1$, is what keeps these two values orthogonal --- the first value $a$ is along the real axis, and the second value $b$ is along the imaginary axis. The complex conjugate, $c^\*$, is simply subtracting the imaginary part instead of adding it (i.e., it represents a reflection along the imaginary dimension). Multiplying $c c^\* $ gives the squared magnitude of the vector, which is a single real-valued scalar number. It is the (squared) length of the hypotenuse of the vector.}}
+
+We now introduce the symbol $\phi$ (another variant of the Greek symbol "phi", like $\varphi$) to represent a complex-valued state variable:
+
+$ \phi = a + i b $
+  
+$ = \varphi_a + i \varphi_b $
+
+So, $\phi$ is composed of two separate real-valued numbers, designated $a$ and $b$ (or $\varphi_a$ and $\varphi_b$, to indicate that they are scalar state variables). A complex number is really just a way of representing two separate real valued numbers, aligned along orthogonal dimensions, in an efficient and compact manner (. It is essential to appreciate that, despite the presence of the imaginary number $i$ (where $i^2 = -1$ or $i = \sqrt{-1}$), *all you ever really have is two real-valued numbers*. There is nothing "imaginary" or mysterious or spooky about the second number in a complex number: all the $i$ does is keep these two values separate from each other. In the end, we will deconstruct all of our complex numbers into their real-valued components, and write purely real-valued expressions that determine their update rules. These expressions will be more complicated than the ones using complex numbers, but they are required for actually implementing the equations on the computer, and they also provide a more explicit and obvious indication of exactly what drives each value.
+
+Here's a few interesting facts about complex numbers:
+
+To do algebra on them, you just have to remember to *keep the real-values sorted separately from the imaginary ones*, but otherwise treat them just like a pair of numbers:
+
+$ y = a + ib $
+
+$ z = c + id $
+
+$ y + z = (a + c) + i(b + d) $
+
+$ y z = a c + i a d + i b c - b d $
+    
+$ = (ac - bd) + i (ad + bc) $
+
+Notice that this multiplication rule is the same as $(a + b)(c + d) = ac + ad + bc + bd$, where you just multiply everything through, except that you end up with these $i$ terms crossing over, and when you multiply $ib$ and $id$, you end up with $i^2bd$, at which point the $i^2$ disappears into a $-1$ (i.e., it crosses over from the imaginary world into the real one).
+
+As you should expect from , adding two complex numbers is like adding two vectors, and multiplication is just like multiplying vectors. Complex numbers really are just a compact way of writing vectors!
+
+Multiplication by $i$: If you multiply a complex number by $i$, then you basically switch the real and imaginary parts: the real moves to the imaginary position, and the imaginary becomes real:
+
+- $ i(a + ib) = ia - b = -b + ia $
+
+Geometrically, this is equivalent to rotating a vector by 90 degrees! If you do this four times, you'll end up back where you started (as you would expect by doing a 360).
+
+The complex conjugate of a complex number is just that number with imaginary dimension inverted:
+
+- $ y^\* = a - i b $
+
+The primary use of such a thing is to find the magnitude of a complex number (i.e., the length of the vector that it represents), as:
+
+- $ y y^\* = (a + i b)(a - i b) $
+
+$ = a^2 - iab + iab + b^2 $
+
+$ = a^2 + b^2 $
+
+This should be recognizable as simply the pythagorean theorem for the squared length of the hypotenuse of a right triangle ($a^2 + b^2 = c^2$). Again, complex numbers have no mystery: they just represent a two-valued vector.
+
+
+

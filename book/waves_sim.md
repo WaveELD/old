@@ -2,11 +2,11 @@
 
 - The project file: [wave_intro.proj](Media:wave_intro.proj "wikilink") (click and Save As to download, then open in [EmeWave](EmeWave "wikilink"))
 
-Back to [WELDBook/Sims/All](WELDBook/Sims/All "wikilink") or [Waves Chapter](WELDBook/Waves "wikilink").
+Back to [WELDBook/Sims/All](WELDBook/Sims/All "wikilink") or [Waves Chapter](ch02_waves.md).
 
 # Project Documentation
 
-This simulation brings to (simulated) life the properties of waves, using the second-order wave equation in a regular Cellular-Automaton (CA) like grid of cells across space, as developed in the [Waves Chapter](WELDBook/Waves "wikilink"). We begin with a one-dimensional version where all the code is available to be examined and modified, and then move to the full 3D simulation provided by [EmeWave](EmeWave "wikilink"). This project also serves as an introduction for how to use the software.
+This simulation brings to (simulated) life the properties of waves, using the second-order wave equation in a regular Cellular-Automaton (CA) like grid of cells across space, as developed in the [Waves Chapter](ch02_waves.md). We begin with a one-dimensional version where all the code is available to be examined and modified, and then move to the full 3D simulation provided by [EmeWave](EmeWave "wikilink"). This project also serves as an introduction for how to use the software.
 
 ## One Dimensional Wave Packet
 
@@ -30,7 +30,7 @@ Now let's examine the program code that is creating this amazing behavior. It is
 
 neigh_sum = neigh_l + neigh_r // average of my neighbor values force = neigh_sum - 2.0 \* cur; // restoring force = restoring force = neighbors vs. my state value acc = c_sq \* force; // acceleration = force, and speed of light acts as a kind of mass-like term in f=ma; a = f/m new_vel = vel + acc; // new velocity = current velocity + new acceleration new_state = cur + new_vel; // new state value = current + new velocity \</pre\>
 
-As discussed in the [Waves Chapter](WELDBook/Waves "wikilink"), each state value is being driven by the difference between the neighbor states and the current state value, which acts as a force that creates an acceleration, which then drives changes in the velocity of that state, finally causing changes in the state value itself. This is all very basic Newtonian physics if we think of the state experiencing a force imposed by the neighboring states. That such a simple set of equations produces the beautiful, often bewildering behavior of waves is nothing short of amazing. That this basic dynamic, with suitable extensions, will carry us all the way to a potentially complete description of electrodynamics is nothing short of astounding!
+As discussed in the [Waves Chapter](ch02_waves.md), each state value is being driven by the difference between the neighbor states and the current state value, which acts as a force that creates an acceleration, which then drives changes in the velocity of that state, finally causing changes in the state value itself. This is all very basic Newtonian physics if we think of the state experiencing a force imposed by the neighboring states. That such a simple set of equations produces the beautiful, often bewildering behavior of waves is nothing short of amazing. That this basic dynamic, with suitable extensions, will carry us all the way to a potentially complete description of electrodynamics is nothing short of astounding!
 
 You should see that the green (acceleration) curve has become essentially a mirror-image reflection of the line -- this shows that the forces at work are pulling in the states back in the opposite direction -- the essential feature of wave dynamics is this "restoring" tension that tries always to pull the extreme values back into the fold. This is the effect of the neighbors always pulling you back toward their average value. If you stand out, you'll get pulled back.
 
@@ -79,7 +79,7 @@ Thus, it seems clear that our equations are as correct as they can be, given the
 
 Feel free at this time to examine the behavior of the other variables (prv, vel, acc) in this bar-chart framework, which may help solidify the basic wave equation dynamics further.
 
-Typically, you will now return to the [Waves Chapter](WELDBook/Waves "wikilink") and read about the 3D version of the wave equation, and then return back to the next section.
+Typically, you will now return to the [Waves Chapter](ch02_waves.md) and read about the 3D version of the wave equation, and then return back to the next section.
 
 ## Wave Packet in 3D
 

@@ -1,4 +1,5 @@
-The basic equations of electromagnetism were developed in the 1800's, through the work of many people. James Clerk Maxwell put all this work together, with several important insights of his own, in a series of papers in 1861-2 that describe what are now known as Maxwell's equations, which fully characterize the behavior of the electromagnetic fields, in relation to electric charges. Maxwell conceived of these as propagating through the **luminiferous aether**, as we discussed in the [Introductory Chapter](WELDBook/Intro "wikilink"). Although Maxwell's equations describe the same kind of wave propagation we explored in the previous [Waves Chapter](WELDBook/Waves "wikilink"), they do so in a somewhat complex way, involving vector fields and various vector operators that can be difficult to understand. Therefore, we start with a formulation of the EM equations that will be immediately familiar from the previous chapter, using second-order wave equations. These second-order wave equations operate on the **electromagnetic potentials**, instead of the electric and magnetic vector fields, which are described by the standard Maxwell's equations. Although many people regard the vector fields as the primary physical reality underlying EM, there is solid physical evidence showing that the electromagnetic potentials are physically real, and exert measurable physical effects, for example the **Aharonov-Bohm** effect (described later). Thus, in addition to being mathematically simpler, the potential-based formulation seems to be physically necessary. It is the formulation that we use in the remainder of the book. Nevertheless, there remain several important sources of controversy and confusion over this choice, which will be introduced as we go through.
+
+The basic equations of electromagnetism were developed in the 1800's, through the work of many people. James Clerk Maxwell put all this work together, with several important insights of his own, in a series of papers in 1861-2 that describe what are now known as Maxwell's equations, which fully characterize the behavior of the electromagnetic fields, in relation to electric charges. Maxwell conceived of these as propagating through the **luminiferous aether**, as we discussed in the [Introductory Chapter](ch01_intro.md). Although Maxwell's equations describe the same kind of wave propagation we explored in the previous [Waves Chapter](ch02_waves.md), they do so in a somewhat complex way, involving vector fields and various vector operators that can be difficult to understand. Therefore, we start with a formulation of the EM equations that will be immediately familiar from the previous chapter, using second-order wave equations. These second-order wave equations operate on the **electromagnetic potentials**, instead of the electric and magnetic vector fields, which are described by the standard Maxwell's equations. Although many people regard the vector fields as the primary physical reality underlying EM, there is solid physical evidence showing that the electromagnetic potentials are physically real, and exert measurable physical effects, for example the **Aharonov-Bohm** effect (described later). Thus, in addition to being mathematically simpler, the potential-based formulation seems to be physically necessary. It is the formulation that we use in the remainder of the book. Nevertheless, there remain several important sources of controversy and confusion over this choice, which will be introduced as we go through.
 
 There are two electromagnetic potentials, the **electrical scalar potential**, which is variously written as $\Phi$ (capital Greek "Phi") or $V$ or $A_0$, and the **magnetic vector potential**, typically written as: $\vec{A} = (A_x, A_y, A_z)$. Most readers should be familiar with the notion of the electrical potential $V$, in terms of the voltage of a battery or an electrical outlet -- therefore, we'll focus on it first. Then we'll cover the more difficult vector potential, which underlies the magnetic field. After exploring each of these and obtaining a solid understanding of their behavior, we relate these potential wave equations back to the original Maxwell equations, and cover various important issues with our potential-based formulation of EM. We then introduce the powerful **four-vector space-time notation**, which will be used in the remainder of the book.
 
@@ -14,7 +15,7 @@ In the absence of any charges (i.e., in empty space), the electrical scalar pote
 
 - **electrical scalar potential, no charges:** $ \frac{\partial^2 {A_0}}{\partial t^2} = c^2 \nabla^2 A_0 $
 
-This means that you already understand exactly how this potential will behave, based on the explorations in the [Waves Chapter](WELDBook/Waves "wikilink"). It will propagate at the speed of light (*c*), exhibit spreading over time due to the nature of the 3D Laplacian, etc.
+This means that you already understand exactly how this potential will behave, based on the explorations in the [Waves Chapter](ch02_waves.md). It will propagate at the speed of light (*c*), exhibit spreading over time due to the nature of the 3D Laplacian, etc.
 
 To include the effects of **electrical charge**, we can extend the equation to include a simple additive factor that is proportional to the local charge density, written by convention as the Greek letter "rho" $\rho$: \frac{\partial^2 {A_0}}{\partial t^2} {{=}} c^2 \nabla^2 A_0 + \frac{1}{\epsilon_0} \rho $}} we'll explain the $\epsilon_0$ (Greek epsilon) constant, known as the **permittivity of free space**, in more detail later. For now, it is just a constant that determines the impact of charge on the electric field. Remembering that the left-hand-side of this wave equation represents the acceleration of the electrical potential, this equation just says that in addition to the local curvature of the field driving acceleration as in the standard wave equation, electrical charge will impart an additional acceleration. It should be clear how our discrete cellular-automaton based wave equation can be augmented to include this extra charge force -- you literally just add this term into the acceleration, which then increments the velocity, which then increments the electrical potential state value.
 
@@ -32,7 +33,7 @@ and finally the state variable is updated:
 
 This wave equation fully characterizes the behavior of the electrical field -- *we don't need anything else to numerically simulate it, and account for all known behavior of the field itself.* Thus, from a physical perspective, we can imagine that only this electrical potential field exists, and things like light waves are just wave propagation over this field. However, to understand how this electrical field influences charged "particles" such as the electron, we do need to extract the electric field vector, which represents the force exerted by the electric field. We can think of this physically as reflecting the force impact of the electrical potential field, derived entirely from the potential, and not as a separate physical entity. Electrical forces ensue from the slope of change (i.e., the **gradient**, as introduced in the waves chapter and pictured in ) of the electrical scalar potential across space, plus the rate of change of the magnetic vector field, which we'll discuss later. Loosely speaking, if you have more potential in one place than another, there is a pressure to flow "downhill" along this gradient to equalize the potential. Mathematically speaking, this can be expressed as: \vec{E} {{=}} - \vec{\nabla} A_0 - \frac{\partial \vec{A}}{\partial t}$}} In words, the electrical field is the spatial gradient of the scalar potential (plus the temporal derivative of the magnetic vector potential $\vec{A}$). Recall the definition of the gradient operator $\vec{\nabla}$ from before: it computes the slope or amount of change in a scalar field along each of the three axes, yielding a vector of three values ().
 
-To actually compute this vector quantity in our discrete 3D framework, we need a discrete gradient operator that is basically just the first-order version of the discrete Laplacian operator that we introduced in the [Waves Chapter](WELDBook/Waves "wikilink"). It is described in detail in this subsection: [Discrete Gradient](WELDBook/Discrete_Gradient "wikilink").
+To actually compute this vector quantity in our discrete 3D framework, we need a discrete gradient operator that is basically just the first-order version of the discrete Laplacian operator that we introduced in the [Waves Chapter](ch02_waves.md). It is described in detail in this subsection: [Discrete Gradient](WELDBook/Discrete_Gradient "wikilink").
 
 == 1/r Potential Dropoff = 1/r^2 Force Field ==
 
@@ -304,6 +305,138 @@ As noted above, this represents a continuity equation, and when this continuity 
 
 # SubTopics
 
-- [Discrete Gradient](WELDBook/Discrete_Gradient "wikilink") -- how to compute the gradient in the discrete space-time cellular-automaton framework.
-- [Discrete Curl](WELDBook/Discrete_Curl "wikilink") -- how to compute the curl in the discrete space-time cellular-automaton framework.
-- [Maxwell-Potential Derivations](WELDBook/EM/Maxwell-Potential_Derivations "wikilink") -- detailed derivations of potential wave equations from Maxwell equations.
+## Discrete Gradient
+
+To compute the vector gradient in our discrete space-time cellular automaton, we need to introduce a new fundamental computation over the neighbors (all the previous equations have all just involved a single neighborhood computation for the Laplacian $\nabla^2$). This is one sense in which the model starts getting a bit more complex (it turns out that this computation will also be needed later for coupling with the electromagnetic field as well). First, in a single spatial dimension for state variable $s$, we saw before (equation~\ref{eq.diff_avg}) that the differential can be approximated as:
+
+- $ \frac{\partial {s}}{\partial {x}} \approx \frac{1}{2 \epsilon} (s\_{i+1} - s\_{i-1}) $
+
+\begin{figure}
+
+` \centering\includegraphics[height=1.5in]{fig.space_cubes_grad_noleg.id}`  
+` \caption{\small Computation of the spatial gradient using all 18`  
+`   neighbors that have a non-zero projection along a given axis (in this`  
+`   case, looking at the x axis).  The two face points ({{< math >}}+,-{{< /math >}} along the axis)`  
+`   have a full projection along the axis, and thus enter with a weight of 1.`  
+`   The 8 edge points each have a {{< math >}}\frac{1}{\sqrt{2}}{{< /math >}} projection of their`  
+`   overall distance along the axis, and thus contribute with that overall`  
+`   weighting.  Similarly, the 8 corners have a {{< math >}}\frac{1}{\sqrt{3}}{{< /math >}} projection`  
+`   weighting.  In computing the weighted average, the sum of all neighbor`  
+`   differences is divided by the sum of the weighting terms.}`  
+` \label{fig.grad}`
+
+\end{figure}
+
+In three dimensions, the computation can be made more accurate and robust by including more of the neighbors, just as we did for the computation of $\nabla^2$. The most relevant neighbors are the 18 that have some projection along an axis, as illustrated in Figure~\ref{fig.grad}. These can be organized into 9 rays that project through the central point, so that the above approximation can be extended to:
+
+- $ \frac{1}{(2 + \frac{8}{\sqrt{2}} + \frac{8}{\sqrt{3}})} \sum\_{j \in N\_{9}} k_j (\varphi\_{j+} - \varphi\_{j-}) $
+
+Where the neighborhood $N\_{9}$ contains pairs of points $j+$ and $j-$ that are opposite ends of the 9 rays through the central point, and the distance weighting factors $k_j$ are:
+
+- **faces:** $ k_j = \pm 1 $
+- **edges:** $ k_j = \pm \frac{1}{\sqrt{2}} $
+- **corners:** $ k_j = \pm \frac{1}{\sqrt{3}} $</text>
+
+
+## Maxwell Potential Derivations
+
+In this subsection, we derive the second-order wave equations operating on the electrical scalar potential and the magnetic vector potential.
+
+For reference, here are Maxwell's equations:
+
+And these are the relationships between the potentials and the force vector fields:
+
+- **magnetic force from vector potential:** $ \vec{B} {{=}} \vec{\nabla} \times \vec{A} $
+- **electric force from scalar potential:** $ \vec{E} {{=}} - \vec{\nabla} A_0 $
+
+Equation ii is automatically satisfied by the fact that the magnetic field vector is the curl of the magnetic vector potential, because the divergence of the curl is always 0. Similarly, equation i is just the basic source equation that is easily incorporated into the second-order wave equation as we saw in the main chapter. Thus, the key challenge to explain is how the iii and iv equations correspond to simple wave equations on the potentials.
+
+We start by inserting the definition for $\vec{B}$ into equation (iii), to get:
+
+- $ \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} $
+
+  
+$ \vec{\nabla} \times \vec{E} = - \frac{\partial}{\partial t}\left(\vec{\nabla} \times \vec{A}\right) $
+
+$ \vec{\nabla} \times \vec{E} = - \vec{\nabla} \times \frac{\partial \vec{A}}{\partial t} $
+
+$ \vec{\nabla} \times \vec{E} + -\vec{\nabla} \times \frac{\partial \vec{A}}{\partial t} = 0 $
+
+$ \vec{\nabla} \times \left(\vec{E} + \frac{\partial \vec{A}}{\partial t} \right) = 0 $
+
+Because this quantity in the parentheses has zero curl according to this equation, it means that it can be written in terms of a gradient of a scalar potential (gradients of scalar fields can't have curl; for example, a ball rolling down a surface can only roll, not spin):
+
+- $ \vec{E} + \frac{\partial \vec{A}}{\partial t} = - \vec{\nabla}{A_0} $
+
+Therefore, we can just re-arrange these terms to get a definition of the electric vector field in terms of the scalar field:
+
+- $ \vec{E} = - \vec{\nabla} A_0 - \frac{\partial \vec{A}}{\partial t} $
+
+This definition agrees with the simple gradient equation given earlier, but it also adds the first temporal derivative of the vector potential as a contributor to the electrical field. To remove this extra term, we need to remove one extra degree of freedom from our system, by making the following definition:
+
+- $ \frac{\partial A_0}{\partial t} = - c^2 \vec{\nabla} \cdot \vec{A}$
+
+This is known as the **Lorenz gauge** or condition (not Lorentz, as some incorrectly state), which is also covered in the main chapter.
+
+Now we use this within equation i and iv. For equation (i), we get:
+
+- $ \vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho $
+
+  
+$ \vec{\nabla} \cdot \left( \vec{\nabla} A_0 + \frac{\partial \vec{A}}{\partial t} \right) = - \frac{1}{\epsilon_0} \rho $
+
+$ \nabla^2 A_0 + \vec{\nabla} \cdot \frac{\partial \vec{A}}{\partial t} = - \frac{1}{\epsilon_0} \rho $
+
+and for equation (iv), we get:
+
+- $ \vec{\nabla} \times \vec{B} = \mu_0 \vec{J} + \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t} $
+
+  
+$ \vec{\nabla} \times \left( \vec{\nabla} \times \vec{A} \right) = \mu_0 \vec{J} + \mu_0 \epsilon_0 \frac{\partial}{\partial t} \left( -\vec{\nabla} A_0 - \frac{\partial \vec{A}}{\partial t} \right) $
+
+$ \left( \nabla^2 \vec{A} - \frac{1}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2} \right) - \vec{\nabla} \left( \vec{\nabla} \cdot \vec{A} + \frac{1}{c^2} \frac{\partial {A_0}}{\partial t} \right) = -\mu_0\vec{J} $
+
+$ \Box \vec{A} - \vec{\nabla} \left( \vec{\nabla} \cdot \vec{A} + \frac{1}{c^2} \frac{\partial {A_0}}{\partial t} \right) = -\mu_0 \vec{J} $
+
+So, perhaps you can see that now we are getting somewhat closer to a wave equation. We now have the $\nabla^2$ terms showing up in both equations, and in the latter we have a $\frac{\partial^2 {}}{\partial t^2}$ term, such that we get the classic wave equation signature, as indicated by the last line where we substituted in the d'Alembertian operator $\Box = \frac{\partial^2 {}}{\partial t^2} - \nabla^2$, which encapsulates the wave equation dynamics of second-order time minus second-order space differentials.
+
+But these equations are still quite messy, and certainly are not purely wave equations. Furthermore, there is still some extra degree of freedom in these potentials in terms of their implications for the observable $\vec{E}$ and $\vec{B}$ fields. For example, you can add any kind of constant numerical offset to the entire electrical potential $A_0$, and this will not change the behavior of the system, because the observable electrical force is defined only in terms of the gradient or slope of this potential field, not its absolute magnitude.
+
+In more formal parlance, it is said that one can choose different {\em gauges} for these potentials, and this choice will affect the form of the equations. In the Lorenz gauge mentioned earlier, this extra degree of freedom is removed by defining:
+
+- $ \frac{\partial {A_0}}{\partial t} = - c^2 \vec{\nabla} \cdot \vec{A}$
+
+For later convenience, this also means that:
+
+- $ \vec{\nabla} \cdot \vec{A} = - \frac{1}{c^2}\frac{\partial {A_0}}{\partial t} $
+
+When you take this latter form and plug it into the above two Maxwell equations, you end up canceling some of the nasty bits out, and you get a very nice form of standard wave equations. For equation (i), we get:
+
+- $ \nabla^2 A_0 + \vec{\nabla} \cdot \frac{\partial {\vec{A}}{\partial t}} = - \frac{1}{\epsilon_0} \rho $
+
+  
+$ \nabla^2 A_0 + \frac{\partial {}}{\partial t}\left(\vec{\nabla} \cdot \vec{A}\right) = - \frac{1}{\epsilon_0} \rho $
+
+$ \nabla^2 A_0 - \frac{\partial {}}{\partial t}\left(\frac{1}{c^2}\frac{\partial {A_0}}{\partial t}\right) = - \frac{1}{\epsilon_0} \rho $
+
+$ \nabla^2 A_0 - \frac{1}{c^2} \frac{\partial^2 {A_0}}{\partial t^2} = - \frac{1}{\epsilon_0} \rho $
+
+$ \frac{\partial^2 {A_0}}{\partial t^2} = c^2 \nabla^2 A_0 + \frac{1}{\epsilon_0} \rho $
+
+(where the boxes indicate the location of the substitution). The result is clearly a basic wave equation with an additional \`\`driving'' term of $\frac{1}{\epsilon_0} \rho$.
+
+For equation (iv), you get:
+
+- $ \left( \nabla^2 \vec{A} - \frac{1}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2} \right) - \vec{\nabla} \left( \vec{\nabla} \cdot \vec{A} + \frac{1}{c^2} \frac{\partial {A_0}}{\partial t} \right) = -\mu_0\vec{J} $
+
+  
+$ \left( \nabla^2 \vec{A} - \frac{1}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2} \right) - \vec{\nabla} \left( \vec{\nabla} \cdot \vec{A} - \frac{1}{c^2}c^2 \vec{\nabla} \cdot \vec{A} \right) = -\mu_0\vec{J} $
+
+$ \left( \nabla^2 \vec{A} - \frac{1}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2} \right) - \vec{\nabla} \left( \vec{\nabla} \cdot \vec{A} - \vec{\nabla} \cdot \vec{A} \right) = -\mu_0\vec{J} $
+
+$ \nabla^2 \vec{A} - \frac{1}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2} = -\mu_0\vec{J} $
+
+$ \frac{\partial^2 \vec{A}}{\partial t^2} = c^2 \nabla^2 \vec{A} + \mu_0\vec{J} $
+
+Again, somewhat miraculously, a wave equation emerges, again with a driving term.</text>
+
