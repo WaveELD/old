@@ -136,11 +136,11 @@ To make these ideas concrete we consider a few examples:
 
 Newton's theory of gravitation (still widely used in practice) is a calculational tool that enables gravitational effects to be computed in terms of the respective masses ($m_1$, $m_2$) and distance *r* between the centers of mass of two bodies:
 
-- $
+$$
+ F = G \frac{m_1 m_2}{r^2}
+$$
 
-` F = G \frac{m_1 m_2}{r^2}`
-
-$ But this is not a physical model that could function autonomously, because the math requires one to somehow know the physical distances between relevant objects (and their respective masses), and not only is this a nonlocal computation, there are a potentially infinite number of other bodies that need to be taken into account. Because of the well-known **n-body problem** with this kind of equation, one must carefully choose which entities to include in the calculation, depending on the exact nature of the problem being solved. By contrast, one would expect that a general, autonomous physical model would compute gravitation directly from the collective effects of each individual atom within all the different celestial bodies in the universe, at which point the Newtonian computation is completely unworkable and absurd.
+But this is not a physical model that could function autonomously, because the math requires one to somehow know the physical distances between relevant objects (and their respective masses), and not only is this a nonlocal computation, there are a potentially infinite number of other bodies that need to be taken into account. Because of the well-known **n-body problem** with this kind of equation, one must carefully choose which entities to include in the calculation, depending on the exact nature of the problem being solved. By contrast, one would expect that a general, autonomous physical model would compute gravitation directly from the collective effects of each individual atom within all the different celestial bodies in the universe, at which point the Newtonian computation is completely unworkable and absurd.
 
 Einstein's *general* theory of relativity, on the other hand, shows how entirely local, speed-of-light propagation of spacetime curvature, operating according to uniform functions at each location in space and time, can convey gravitational forces without any of the problems associated with the Newtonian calculational tool. It is a true autonomous physical model of the best kind: the mathematical constructs map directly onto physical processes that are entirely plausible and compelling for what nature can be autonomously doing to produce the phenomenon of gravitation.
 
