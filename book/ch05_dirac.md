@@ -268,7 +268,10 @@ $$
 
 In the end, the net result of the dot product with an arbitrary vector $\vec{p}$ is:
 
-- $\vec{\sigma} \cdot \vec{p} = \left( \begin{array}{cc} p_z & p_x - i p_y \\ p_x + i p_y & -p_z \end{array} \right) $
+$$
+\vec{\sigma} \cdot \vec{p} = \left( \begin{array}{cc} p_z & p_x - i p_y \\
+p_x + i p_y & -p_z \end{array} \right)
+$$
 
 So applied to our $\vec{B} + i\vec{E}$ vector, it is:
 
@@ -286,7 +289,7 @@ $$
 
 So, now we're getting some sense of how this works: different components of the electromagnetic field exert different forces on the different components of the $\psi$ state, producing a rotational effect.
 
-This entire result then is multiplied by the two complex numbers in the $\psi$ state: {\small
+This entire result then is multiplied by the two complex numbers in the $\psi$ state:
 
 $$
 \left( \begin{array}{cc} B_z + iE_z & B_x + E_y + i(E_x - B_y) \\
