@@ -174,7 +174,7 @@ This captures the essential reason for the covariant form: if time and space are
 
 So what does any of this have to do with the wave equation? We're just two short steps away from that. First, we need the definition of multiplying two four-vectors:
 
-- $a \cdot b \equiv {a}^\mu {b}\_\mu = {a}\_\mu {b}^\mu \equiv a^0 b_0 + a^1 b_1 + a^2 b_2 + a^3 b_3 = a^t b^t - a^x b^x - a^y b^y - a^z b^z = \sum_{\mu = 0}^3 {a}\_\mu {b}^\mu $
+- $a \cdot b \equiv {a}^\mu {b}\_\mu = {a}\_\mu {b}^\mu \equiv a^0 b_0 + a^1 b_1 + a^2 b_2 + a^3 b_3 = a^t b^t - a^x b^x - a^y b^y - a^z b^z = \sum^3_{\mu = 0} {a}\_\mu {b}^\mu $
 
 We'll see some interesting properties of this multiplication rule later, but the main thing to notice is that it produces a time = space covariant result.
 
