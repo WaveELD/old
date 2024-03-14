@@ -364,6 +364,23 @@ Overall, it is interesting to compare our strong enthusiasm for the KG equation 
 
 ## Special Relativity
 
+![fig6](figs/fig_lorentz_xform_small.png)
+
+**Figure 4.6:** Illustration of Lorentz transformation between a static reference frame F (which is the same reference frame as the page, for example), and a frame F' moving at velocity $v$ relative to F.  Both frames contain a rigid rod, which when F' was at rest relative to F were the same length $l$, as indicated by the ruler marks.  These rods now appear to be of different lengths in the two frames --- from the perspective of F, the rod in F' appears to have shrunk to a shorter length $l'$.  Interestingly, from the perspective of an observer moving along with the F' reference frame, its rod appears to be of length $l$ (same as when it was stationary), and the other rod in F appears to have shrunk.
+
+![fig7](figs/fig_lorentz_factor.png)
+
+**Figure 4.7:** The amount of shrinkage as a function of velocity $v$ is determined by the Lorentz factor $\gamma$, which is plotted here (in natural units where the speed of light $c = 1$).  Not much happens until you get very close to the speed of light (e.g., above 90% or .9).
+
+![fig8](figs/fig_lorentz_xform_coord.png)
+
+**Figure 4.8:** Lorentz coordinate transformations, plotted in one spatial coordinate (x) and time (vertical axis).  In the resting frame F, two points (think of them as marbles) just sit motionless, and thus form vertical trajectories through increasing time.  When these are transformed into a reference frame F' (aligned at point (t{{=}}0,x{{=}}0) with F) moving to the left at $v {{=}} -.866$ (Lorentz factor $\gamma {{=}} 2$), several interesting features of the Lorentz transformation are evident.  If we follow the marble that was originally located at (0,x) as it sits in frame F for 3 time steps, we see that it appears to move to the right in frame F', in the opposite direction of F' motion.  Furthermore, because of the Lorentz factor, the 3 seconds in frame F amount to 6 seconds in F', and the distance it should travel due to the relative motion, computed in frame F ($-vt {{=}} .866 \times 3 {{=}} 2.598$) corresponds to 5.196 in frame F'. The second marble reveals a critical and somewhat counter-intuitive effect, where two events that are {\em simultaneous} in frame F (i.e., t{{=}}0 for both of these), occur at ''different times'' in frame F'. Specifically the second marble sitting at rest at x{{=}}2 at t{{=}}0 is not &quot;encountered&quot; by the moving frame F' until 3.464 time seconds later (in F' time units), due to it being offset in space from the first marble.  It takes the frame F' $(-vx {{=}} .866 * 2 {{=}} 1.732)$ time units to get to this second point (in the units of the F frame), and when this gets subject to the time dilation effect, you end up with the 3.464.  From this starting point for the second marble, the same time and space increments as for the first marble occur for the subsequent point 3 time units later.
+
+![fig9](figs/fig_lorentz_xform_coord_c.png)
+
+**Figure 4.9** An alternative situation to Figure 4.8, where the points in frame F are now moving at the speed of light (indicated by their slopes being 1; they are now photons instead of marbles).  The Lorentz conversions preserve these slopes, so that the speeds are still 1 in the F' frame.  Thus, the speed of light is always the same to all observers.
+
+
 This subtopic provides a thorough treatment of **special relativity**, including the math needed to transform between different reference frames. We never actually have to use this in our numerical simulations, because all of our wave equations are automatically consistent with special relativity (i.e., they are **manifestly covariant**). But it is important to understand how all this works in any case.
 
 The mathematics of special relativity involves the computation of relative distance and time measurements in different reference frames that are moving relative to each other (). As and illustrates a rigid rod of the same length $l$ can appear shortened if it is moving along at a high velocity $v$ relative to a static reference frame F (i.e., not moving relative to this page of paper). We denote the moving rod's reference frame F'.
@@ -483,6 +500,10 @@ This page shows all the mathematical steps needed to go from the relativistic re
 - $v = \frac{h c}{\sqrt{c^2 m_0^2 \lambda^2 + h^2}}$ (final expression -- take square root)
 
 ## Complex Numbers
+
+![figcn](figs/fig_complex_numbers.png)
+
+**Figure:** Complex numbers are just a way of representing two real values with one number, where these two values are aligned along two separate orthogonal dimensions.  The imaginary number $i$, where $i^2 = -1$, is what keeps these two values orthogonal --- the first value $a$ is along the real axis, and the second value $b$ is along the imaginary axis. The complex conjugate, $c^*$, is simply subtracting the imaginary part instead of adding it (i.e., it represents a reflection along the imaginary dimension).  Multiplying $c c^* $ gives the squared magnitude of the vector, which is a single real-valued scalar number.  It is the (squared) length of the hypotenuse of the vector.
 
 We now introduce the symbol $\phi$ (another variant of the Greek symbol "phi", like $\varphi$) to represent a complex-valued state variable:
 
