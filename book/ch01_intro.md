@@ -89,11 +89,11 @@ As we discussed above, the most natural, simplest fundamental, irreducible level
 
 ## The Cellular Automaton Model of Space and Time, and Local Deterministic Interactions
 
-![fig1](fig_ca_2d.png)
+![fig1](figs/fig_ca_2d.png)
 
 **Figure 1:** Illustration of a simple 2-dimensional cellular automaton: space is divided into regular square cells (a uniform, regular tiling of space), and neighboring states interact by influencing the state update.  Time updates synchronously, setting the fastest rate of propagation as cell width / time update.
 
-![fig2]fig_space_cubes_fec_lapl.png)
+![fig2](figs/fig_space_cubes_fec_lapl.png)
 
 **Figure 2:** Neighborhood interactions in regular cubic tiling of space in three-dimensions -- these interactions are used to compute the wave equation locally.
 
