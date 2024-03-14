@@ -311,7 +311,7 @@ The most important fundamental consequence of decoherence is that it provides on
 
 **Figure 7:** The double-slit experiment -- narrow openings in the slits cause the wave to spread through diffraction, and because of the different distances traveled in the path from the two different slits to a given point on the far screen P, the waves will experience either constructive or destructive interference, resulting in the wavy bands of light and dark as shown.  The quantum paradox here is that this pattern obtains even when a single particle is emitted at a time -- the particle only ever goes through one slit or the other, but somehow the wave goes through both.  Figure from wikimedia commons by Lacatosias.
 
-![fig8](fig_double_slit_expt_electrons.jpg)
+![fig8](figs/fig_double_slit_expt_electrons.jpg)
 
 **Figure 8:** Results of a double-slit experiment using electrons, with increasing numbers of electrons recorded (11, 200, 6000, 40000, and 140000).  The interference pattern emerges over time, even though only single electrons are detected on each trial.  Figure from by Dr. Tonomura via wikimedia commons.
 
